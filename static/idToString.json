@@ -1,0 +1,11 @@
+{
+	"//Events": "Added locations that signify plot",
+
+	"//Groups": "Convience wrapper of multiple locations within one map location",
+
+	"//Items": "User facing names of progression Items",
+
+	"//Settings": "Settings as not-Ids",
+
+	"//locations": "//https://github.com/ArchipelagoMW/Archipelago/blob/main/worlds/pokemon_rb/locations.py"
+}

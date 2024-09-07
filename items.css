@@ -1,0 +1,322 @@
+/* Badges, Row 1 */
+#ITEM_BADGE_1 {
+	background-image: url(./images/items/Boulder_Badge.png);
+}
+#ITEM_BADGE_2 {
+	background-image: url(./images/items/Cascade_Badge.png);
+}
+#ITEM_BADGE_3 {
+	background-image: url(./images/items/Thunder_Badge.png);
+}
+#ITEM_BADGE_4 {
+	background-image: url(./images/items/Rainbow_Badge.png);
+}
+#ITEM_BADGE_5 {
+	background-image: url(./images/items/Soul_Badge.png);
+}
+#ITEM_BADGE_6 {
+	background-image: url(./images/items/Marsh_Badge.png);
+}
+#ITEM_BADGE_7 {
+	background-image: url(./images/items/Volcano_Badge.png);
+}
+#ITEM_BADGE_8 {
+	background-image: url(./images/items/Earth_Badge.png);
+}
+
+/* HMs, Row 2 */
+#ITEM_HM_CUT {
+	background-image: url(./images/items/hm01.png);
+}
+#ITEM_HM_FLY {
+	background-image: url(./images/items/hm02.png);
+}
+#ITEM_HM_SURF {
+	background-image: url(./images/items/hm03.png);
+}
+#ITEM_HM_STRENGTH {
+	background-image: url(./images/items/hm04.png);
+}
+#ITEM_HM_FLASH {
+	background-image: url(./images/items/hm05.png);
+}
+#ITEM_HM_ROCK_SMASH {
+	background-image: url(./images/items/hm06.png);
+}
+#ITEM_HM_WATERFALL {
+	background-image: url(./images/items/hm07.png);
+}
+
+/* Items, Row 3 */
+#ITEM_OAKS_PARCEL {
+	background-image: url(./images/items/ITEM_OAKS_PARCEL.png);
+}
+#ITEM_SS_TICKET {
+	background-image: url(./images/items/ITEM_SS_TICKET.png);
+}
+#ITEM_BIKE_VOUCHER {
+	background-image: url(./images/items/ITEM_BIKE_VOUCHER.png);
+}
+#ITEM_BICYCLE {
+	background-image: url(./images/items/ITEM_BICYCLE.png);
+}
+#ITEM_ITEMFINDER {
+	background-image: url(./images/items/ITEM_ITEMFINDER.png);
+}
+#ITEM_TEA {
+	background-image: url(./images/items/ITEM_TEA.png);
+}
+#ITEM_COIN_CASE {
+	background-image: url(./images/items/ITEM_COIN_CASE.png);
+}
+#ITEM_LIFT_KEY {
+	background-image: url(./images/items/ITEM_LIFT_KEY.png);
+}
+#ITEM_SILPH_SCOPE {
+	background-image: url(./images/items/ITEM_SILPH_SCOPE.png);
+}
+#ITEM_POKE_FLUTE {
+	background-image: url(./images/items/ITEM_POKE_FLUTE.png);
+}
+#ITEM_CARD_KEY {
+	background-image: url(./images/items/ITEM_CARD_KEY.png);
+}
+#ITEM_GOLD_TEETH {
+	background-image: url(./images/items/ITEM_GOLD_TEETH.png);
+}
+#ITEM_SECRET_KEY {
+	background-image: url(./images/items/ITEM_SECRET_KEY.png);
+}
+#ITEM_TRI_PASS {
+	background-image: url(./images/items/ITEM_TRI_PASS.png);
+}
+#ITEM_METEORITE {
+	background-image: url(./images/items/ITEM_METEORITE.png);
+}
+#ITEM_RAINBOW_PASS {
+	background-image: url(./images/items/ITEM_RAINBOW_PASS.png);
+}
+#ITEM_RUBY {
+	background-image: url(./images/items/ITEM_RUBY.png);
+}
+#ITEM_SAPPHIRE {
+	background-image: url(./images/items/ITEM_SAPPHIRE.png);
+}
+#ITEM_MYSTIC_TICKET {
+	background-image: url(./images/items/ITEM_MYSTIC_TICKET.png);
+}
+
+/* Settings, not really items but similar enough */
+#shuffle_hidden._0 {
+	background-image: url(./images/settings/hidehidden.png);
+}
+#shuffle_hidden._1 {
+	background-image: url(./images/settings/hideRespawn.png);
+}
+#shuffle_hidden._2 {
+	background-image: url(./images/settings/showhidden.png);
+}
+
+#kanto_only._0 {
+	background-image: url(./images/settings/showsevii.png);
+}
+#kanto_only._1 {
+	background-image: url(./images/settings/hidesevii.png);
+}
+
+#pewter_city_roadblock._0 {
+	background-image: url(./images/settings/r3_0.png);
+}
+#pewter_city_roadblock._1 {
+	background-image: url(./images/settings/r3_1.png);
+}
+#pewter_city_roadblock._2 {
+	background-image: url(./images/settings/r3_2.png);
+}
+#pewter_city_roadblock._3 {
+	background-image: url(./images/settings/r3_3.png);
+}
+#pewter_city_roadblock._4 {
+	background-image: url(./images/settings/r3_4.png);
+}
+
+#viridian_gym_requirement._0 {
+	background-image: url(./images/settings/vgr_0.png);
+}
+#viridian_gym_requirement._1 {
+	background-image: url(./images/settings/vgr_1.png);
+}
+
+#route22_gate_requirement._0 {
+	background-image: url(./images/settings/r22r_0.png);
+}
+#route22_gate_requirement._1 {
+	background-image: url(./images/settings/r22r_1.png);
+}
+
+#route23_guard_requirement._0 {
+	background-image: url(./images/settings/vrr_0.png);
+}
+#route23_guard_requirement._1 {
+	background-image: url(./images/settings/vrr_1.png);
+}
+
+#elite_four_requirement._0 {
+	background-image: url(./images/settings/e4r_0.png);
+}
+#elite_four_requirement._1 {
+	background-image: url(./images/settings/e4r_1.png);
+}
+
+#cerulean_cave_requirement._0 {
+	background-image: url(./images/settings/ccr_0.png);
+}
+#cerulean_cave_requirement._1 {
+	background-image: url(./images/settings/ccr_1.png);
+}
+#cerulean_cave_requirement._2 {
+	background-image: url(./images/settings/ccr_2.png);
+}
+#cerulean_cave_requirement._3 {
+	background-image: url(./images/settings/ccr_3.png);
+}
+#cerulean_cave_requirement._4 {
+	background-image: url(./images/settings/ccr_4.png);
+}
+
+#viridian_gym_count._0 {
+	background-image: url(./images/settings/vgc_0.png);
+}
+#viridian_gym_count._1 {
+	background-image: url(./images/settings/vgc_1.png);
+}
+#viridian_gym_count._2 {
+	background-image: url(./images/settings/vgc_2.png);
+}
+#viridian_gym_count._3 {
+	background-image: url(./images/settings/vgc_3.png);
+}
+#viridian_gym_count._4 {
+	background-image: url(./images/settings/vgc_4.png);
+}
+#viridian_gym_count._5 {
+	background-image: url(./images/settings/vgc_5.png);
+}
+#viridian_gym_count._6 {
+	background-image: url(./images/settings/vgc_6.png);
+}
+#viridian_gym_count._7 {
+	background-image: url(./images/settings/vgc_7.png);
+}
+
+#route22_gate_count._0 {
+	background-image: url(./images/settings/r22c_0.png);
+}
+#route22_gate_count._1 {
+	background-image: url(./images/settings/r22c_1.png);
+}
+#route22_gate_count._2 {
+	background-image: url(./images/settings/r22c_2.png);
+}
+#route22_gate_count._3 {
+	background-image: url(./images/settings/r22c_3.png);
+}
+#route22_gate_count._4 {
+	background-image: url(./images/settings/r22c_4.png);
+}
+#route22_gate_count._5 {
+	background-image: url(./images/settings/r22c_5.png);
+}
+#route22_gate_count._6 {
+	background-image: url(./images/settings/r22c_6.png);
+}
+#route22_gate_count._7 {
+	background-image: url(./images/settings/r22c_7.png);
+}
+#route22_gate_count._8 {
+	background-image: url(./images/settings/r22c_8.png);
+}
+
+#route23_guard_count._0 {
+	background-image: url(./images/settings/vrc_0.png);
+}
+#route23_guard_count._1 {
+	background-image: url(./images/settings/vrc_1.png);
+}
+#route23_guard_count._2 {
+	background-image: url(./images/settings/vrc_2.png);
+}
+#route23_guard_count._3 {
+	background-image: url(./images/settings/vrc_3.png);
+}
+#route23_guard_count._4 {
+	background-image: url(./images/settings/vrc_4.png);
+}
+#route23_guard_count._5 {
+	background-image: url(./images/settings/vrc_5.png);
+}
+#route23_guard_count._6 {
+	background-image: url(./images/settings/vrc_6.png);
+}
+#route23_guard_count._7 {
+	background-image: url(./images/settings/vrc_7.png);
+}
+#route23_guard_count._8 {
+	background-image: url(./images/settings/vrc_8.png);
+}
+
+#elite_four_count._0 {
+	background-image: url(./images/settings/e4c_0.png);
+}
+#elite_four_count._1 {
+	background-image: url(./images/settings/e4c_1.png);
+}
+#elite_four_count._2 {
+	background-image: url(./images/settings/e4c_2.png);
+}
+#elite_four_count._3 {
+	background-image: url(./images/settings/e4c_3.png);
+}
+#elite_four_count._4 {
+	background-image: url(./images/settings/e4c_4.png);
+}
+#elite_four_count._5 {
+	background-image: url(./images/settings/e4c_5.png);
+}
+#elite_four_count._6 {
+	background-image: url(./images/settings/e4c_6.png);
+}
+#elite_four_count._7 {
+	background-image: url(./images/settings/e4c_7.png);
+}
+#elite_four_count._8 {
+	background-image: url(./images/settings/e4c_8.png);
+}
+
+#cerulean_cave_count._0 {
+	background-image: url(./images/settings/ccc_0.png);
+}
+#cerulean_cave_count._1 {
+	background-image: url(./images/settings/ccc_1.png);
+}
+#cerulean_cave_count._2 {
+	background-image: url(./images/settings/ccc_2.png);
+}
+#cerulean_cave_count._3 {
+	background-image: url(./images/settings/ccc_3.png);
+}
+#cerulean_cave_count._4 {
+	background-image: url(./images/settings/ccc_4.png);
+}
+#cerulean_cave_count._5 {
+	background-image: url(./images/settings/ccc_5.png);
+}
+#cerulean_cave_count._6 {
+	background-image: url(./images/settings/ccc_6.png);
+}
+#cerulean_cave_count._7 {
+	background-image: url(./images/settings/ccc_7.png);
+}
+#cerulean_cave_count._8 {
+	background-image: url(./images/settings/ccc_8.png);
+}

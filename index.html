@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+	<title>FireRed/LeafGreen Tracker</title>
+	<link rel="stylesheet" href="index.css">
+	<link rel="stylesheet" href="locations.css">
+	<link rel="stylesheet" href="items.css">
+	<script src="static/locationType.js" type="text/javascript"></script>
+	<script src="index.js" type="text/javascript"></script>
+	<script src="logic.js" type="text/javascript"></script>
+	<script src="sync.js" type="text/javascript"></script>
+	<body>
+		<div id="leftCol">
+			<div id="settings">
+				<img class="setting _0" id="shuffle_hidden" onclick="settingIterate(this, 2)">
+				<img class="setting _0" id="kanto_only" onclick="settingIterate(this, 1)">
+				<img class="setting _0" id="pewter_city_roadblock" onclick="settingIterate(this, 4)">
+				<img class="setting _0" id="viridian_gym_requirement" onclick="settingIterate(this, 1)">
+				<img class="setting _0" id="route22_gate_requirement" onclick="settingIterate(this, 1)">
+				<img class="setting _0" id="route23_guard_requirement" onclick="settingIterate(this, 1)">
+				<img class="setting _0" id="elite_four_requirement" onclick="settingIterate(this, 1)">
+				<img class="setting _0" id="cerulean_cave_requirement" onclick="settingIterate(this, 4)">
+				<div class="setting notImageImage" id="CHECK_CHECKED">0</div>
+				<div class="setting notImageImage" id="CHECK_LOGICAL">50</div>
+				<div class="setting notImageImage" id="CHECK_TOTAL">300</div>
+				<img class="setting _0" id="viridian_gym_count" onclick="settingIterate(this, 7)">
+				<img class="setting _0" id="route22_gate_count" onclick="settingIterate(this, 8)">
+				<img class="setting _0" id="route23_guard_count" onclick="settingIterate(this, 8)">
+				<img class="setting _0" id="elite_four_count" onclick="settingIterate(this, 8)">
+				<img class="setting _0" id="cerulean_cave_count" onclick="settingIterate(this, 8)">
+			</div>
+			<div id="items">
+				<img class="item" id="ITEM_BADGE_1">
+				<img class="item" id="ITEM_BADGE_2">
+				<img class="item" id="ITEM_BADGE_3">
+				<img class="item" id="ITEM_BADGE_4">
+				<img class="item" id="ITEM_BADGE_5">
+				<img class="item" id="ITEM_BADGE_6">
+				<img class="item" id="ITEM_BADGE_7">
+				<img class="item" id="ITEM_BADGE_8">
+				<img class="item" id="ITEM_HM_FLASH">
+				<img class="item" id="ITEM_HM_CUT">
+				<img class="item" id="ITEM_HM_FLY">
+				<img class="item" id="ITEM_HM_STRENGTH">
+				<img class="item" id="ITEM_HM_SURF">
+				<img class="item" id="ITEM_HM_ROCK_SMASH">
+				<img class="item" id="ITEM_HM_WATERFALL">
+				<div class="setting notImageImage"></div>
+				<img class="item smallItem" id="ITEM_OAKS_PARCEL">
+				<img class="item smallItem" id="ITEM_SS_TICKET">
+				<img class="item smallItem" id="ITEM_BIKE_VOUCHER">
+				<img class="item smallItem" id="ITEM_BICYCLE">
+				<img class="item smallItem" id="ITEM_ITEMFINDER">
+				<img class="item smallItem" id="ITEM_TEA">
+				<img class="item smallItem" id="ITEM_COIN_CASE">
+				<img class="item smallItem" id="ITEM_LIFT_KEY">
+				<img class="item smallItem" id="ITEM_SILPH_SCOPE">
+				<img class="item smallerItem" id="ITEM_POKE_FLUTE">
+				<img class="item smallerItem" id="ITEM_CARD_KEY">
+				<img class="item smallerItem" id="ITEM_GOLD_TEETH">
+				<img class="item smallerItem" id="ITEM_SECRET_KEY">
+				<img class="item smallerItem" id="ITEM_TRI_PASS">
+				<img class="item smallerItem" id="ITEM_METEORITE">
+				<img class="item smallerItem" id="ITEM_RAINBOW_PASS">
+				<img class="item smallerItem" id="ITEM_RUBY">
+				<img class="item smallerItem" id="ITEM_SAPPHIRE">
+				<img class="item smallerItem" id="ITEM_MYSTIC_TICKET">
+			</div>
+			<div id="itemHoverDesc">
+				&nbsp
+			</div>
+			<div id="groupBreakDown">
+
+			</div>
+		</div>
+
+		<div id="map">
+			<img id="kanto" style="background-image:url(./images/kanto-compressed.png)" src="./images/kanto.png">
+			<!---------------------------------------------------------------------------->
+			<!--Cities-->
+			<!---------------------------------------------------------------------------->
+			<!--Pallet Town-->
+			
+			<!--Viridian City-->
+			
+			<!--Pewter City-->
+			
+			<!--Cerulean City-->
+			
+			<!--Vermilion City-->
+			
+			<!--Lavender Town-->
+			
+			<!--Celadon City-->
+			
+			<!--Saffron City-->
+			
+			<!--Fuchsia City-->
+			
+			<!--Cinnabar Island-->
+			
+			<!---------------------------------------------------------------------------->
+			<!--Routes-->
+			<!---------------------------------------------------------------------------->
+			<!--1-->
+			
+			<!--2-->
+			
+			<!--4-->
+			
+			<!--5-->
+			
+			<!--8-->
+			
+			<!--9-->
+			
+			<!--10-->
+			
+			<!--11-->
+			
+			<!--12-->
+			
+			<!--13-->
+			
+			<!--15-->
+			
+			<!--16-->
+			
+			<!--17-->
+			
+			<!--20-->
+			
+			<!--23-->
+			
+			<!--24-->
+			
+			<!--25-->
+			
+			<!-- The on hover blurb -->
+			<div id="idViewer"></div>
+		</div>
+	</body>
+	<script>
+		addOnClick();
+		parseSettings();
+		// hideToMatch(HIDDEN_ITEMS, "Hidden_Item_");
+		updateLocations();
+		updateGroups();
+		countchecks();
+		(async() => {
+			await loadStaticContent();
+			connect();
+		})()
+	</script>
+<html>

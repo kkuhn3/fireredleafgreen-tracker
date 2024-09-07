@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Red/Blue Tracker Settings</title>
+	<script src="index.js"></script>
+	<link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+	<div class="header">
+		Archipelago Configs
+	</div>
+
+	<div>
+		<label>Player Name</label>
+		<input type="text" id="PNAME" />
+	</div>
+	<div>
+		<label>Archipelago Port</label>
+		<input type="text" id="APORT" />
+	</div>
+
+	<div class="header">
+		Randomizer Settings
+	</div>
+	<div>
+		<label>Hidden Items</label>
+		<select id="HI">
+			<option value="0" selected>Excluded</option>
+			<option value="1">Randomized</option>
+		</select>
+	</div>
+	<div>
+		<label>Route 3 Condition</label>
+		<select id="R3">
+			<option value="0">Open</option>
+			<option value="1" selected>Defeat Brock</option>
+			<option value="2">Defeat any Gym Leader</option>
+			<option value="3">Obtain Boulder Badge</option>
+			<option value="4">Obtain any Badge</option>
+		</select>
+	</div>
+	<div>
+		<label>Fossils for Second Fossil Check</label>
+		<select id="FC">
+			<option value="0">0</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3" selected>3</option>
+		</select>
+	</div>
+	<div>
+		<label>Badges for Viridian Gym</label>
+		<select id="VG">
+			<option value="0">0</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7" selected>7</option>
+			<option value="8">8</option>
+		</select>
+	</div>
+	<div>
+		<label>Badges for Route 22 Gate</label>
+		<select id="R22">
+			<option value="0">0</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7" selected>7</option>
+			<option value="8">8</option>
+		</select>
+	</div>
+	<div>
+		<label>Badges for Victory Road</label>
+		<select id="VR">
+			<option value="0">0</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8" selected>8</option>
+		</select>
+	</div>
+	<div>
+		<label>Badges for Elite Four</label>
+		<select id="E4">
+			<option value="0">0</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8" selected>8</option>
+		</select>
+	</div>
+	<div>
+		<label>Badges for Cerulean Cave</label>
+		<select id="CC">
+			<option value="0">0</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8" selected>8</option>
+		</select>
+	</div>
+
+	<div class="header">
+		Ready?
+	</div>
+	<div>
+		<label>Let's Go</label>
+		<button type="button" onclick="launch()">Launch</button>
+	</div>
+
+</body>
+</html>
