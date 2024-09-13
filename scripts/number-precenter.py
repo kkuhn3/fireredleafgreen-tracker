@@ -9,8 +9,8 @@ with open('./output.txt', 'w') as out:
 			else:
 				topMatch = re.search('top', line)
 				if (topMatch == None):
-					num = int(numMatch.group()[0:-2]) / 54.63
+					num = int(numMatch.group()[0:-2]) / 111.75
 					out.write('\tleft: ' + str(num) + '%;\n')
 				else:
-					num = int(numMatch.group()[0:-2]) / 57.51
+					num = int(numMatch.group()[0:-2]) / 64.00
 					out.write('\ttop: ' + str(num) + '%;\n')
