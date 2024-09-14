@@ -102,7 +102,7 @@ function can_plot_to_cerulean() {
 	return can_route3_from_pewter() && has("EVENT_RETURN_PARCEL");
 }
 function can_plot_to_vermilion() {
-	return can_plot_to_cerulean() && has("EVENT_RESCUE_BILL");
+	return can_plot_to_cerulean() && has("EVENT_ASSIST_BILL");
 }
 function can_gym_badge_count(requirementDiv, countDiv) {
 	const wantGyms = parseInt(requirementDiv.classList[1].substring(1), 10);
@@ -431,6 +431,54 @@ function can_e4() {
 }
 // 24 - can_cerulean()
 // 25 - can_cerulean()
+// One
+function can_one() {
+	if (has("EVENT_DEFEAT_BLAINE") && can_cinnabar()) {
+		return "logical";
+	}
+	if (has("ITEM_TRI_PASS") && can_vermilion()) {
+		return "logical";
+	}
+}
+function can_treasureBeach() {
+	if (can_surf()) {
+		return can_areaHidden(can_one());
+	}
+}
+function can_two() {
+	if (has("EVENT_FIND_LOSTELLE") && has("EVENT_DEFEAT_BLAINE") && can_cinnabar()) {
+		return "logical";
+	}
+	if (has("ITEM_TRI_PASS") && can_vermilion()) {
+		return "logical";
+	}
+}
+function can_three() {
+	if (has("ITEM_TRI_PASS")) {
+		return can_vermilion();
+	}
+}
+function can_four_five_six_seven() {
+	if (has("ITEM_RAINBOW_PASS")) {
+		return can_vermilion();
+	}
+}
+// TODO: make a note of this in the ID to English Group Name
+function can_rocketWarehouse() {
+	// first can you get there
+	if (can_four_five_six_seven()) {
+		// Then if you can get "goldeen_need_log"
+		if (can_surf() && has("EVENT_DELIVER_METEORITE") && can_one()) {
+			// and if you can get "yes_nah_chansey"
+			if (can_cut()) {
+				// and help lorelei in icefall cave
+				if (can_waterfall()) {
+					return "logical";
+				}
+			}
+		}
+	}
+}
 
 const locationHighlight = {}
 
@@ -507,7 +555,7 @@ const locationLogic = {
 		return can_areaHidden(can_cerulean());
 	},
 	"NPC_GIFT_GOT_TM28_FROM_ROCKET": function() {
-		if (has("EVENT_RESCUE_BILL")) {
+		if (has("EVENT_ASSIST_BILL")) {
 			return can_cerulean();
 		}
 	},
@@ -1262,10 +1310,10 @@ const locationLogic = {
 		return can_areaHidden(can_vermilion());
 	},
 	// 6
-	"HIDDEN_ITEM_UNDERGROUND_PATH_NORTH_SOUTH_TUNNEL_ICE_HEAL": function() {
+	"HIDDEN_ITEM_ROUTE6_SITRUS_BERRY": function() {
 		return can_areaHidden(can_vermilion());
 	},
-	"HIDDEN_ITEM_UNDERGROUND_PATH_NORTH_SOUTH_TUNNEL_BURN_HEAL": function() {
+	"HIDDEN_ITEM_ROUTE6_RARE_CANDY": function() {
 		return can_areaHidden(can_vermilion());
 	},
 	// 7
@@ -1672,4 +1720,467 @@ const locationLogic = {
 	"NPC_GIFT_GOT_SS_TICKET": function() {
 		return can_cerulean();
 	},
+	// One 
+	"HIDDEN_ITEM_MT_EMBER_EXTERIOR_ULTRA_BALL": function() {
+		if (can_surf() && can_strength()) {
+			return can_areaHidden(can_one());
+		}
+	},
+	"ITEM_MT_EMBER_EXTERIOR_DIRE_HIT": function() {
+		if (can_surf() && can_strength()) {
+			return can_one();
+		}
+	},
+	"ITEM_MT_EMBER_EXTERIOR_FIRE_STONE": function() {
+		if (can_surf() && can_strength() && can_rockSmash()) {
+			return can_one();
+		}
+	},
+	"HIDDEN_ITEM_MT_EMBER_EXTERIOR_FIRE_STONE": function() {
+		if (can_surf() && can_strength()) {
+			return can_areaHidden(can_one());
+		}
+	},
+	"ITEM_MT_EMBER_EXTERIOR_ULTRA_BALL": function() {
+		if (can_surf() && can_strength()) {
+			return can_one();
+		}
+	},
+	"NPC_GIFT_GOT_RUBY": function() {
+		if (can_surf() && can_strength() && has("EVENT_DELIVER_METEORITE")) {
+			return can_one();
+		}
+	},
+	"NPC_GIFT_GOT_METEORITE": function() {
+		return can_one();
+	},
+	"NPC_GIFT_GOT_TRI_PASS": function() {
+		return can_one();
+	},
+	"NPC_GIFT_GOT_RAINBOW_PASS": function() {
+		if (has("ITEM_RUBY") && has("EVENT_DELIVER_METEORITE")) {
+			return can_one();
+		}
+	},
+	"HIDDEN_ITEM_ONE_ISLAND_TREASURE_BEACH_STARDUST": function() {
+		return can_treasureBeach();
+	},
+	"HIDDEN_ITEM_ONE_ISLAND_TREASURE_BEACH_ULTRA_BALL": function() {
+		return can_treasureBeach();
+	},
+	"HIDDEN_ITEM_ONE_ISLAND_TREASURE_BEACH_BIG_PEARL": function() {
+		return can_treasureBeach();
+	},
+	"HIDDEN_ITEM_ONE_ISLAND_TREASURE_BEACH_STARDUST_2": function() {
+		return can_treasureBeach();
+	},
+	"HIDDEN_ITEM_ONE_ISLAND_TREASURE_BEACH_PEARL": function() {
+		return can_treasureBeach();
+	},
+	"HIDDEN_ITEM_ONE_ISLAND_TREASURE_BEACH_STAR_PIECE": function() {
+		return can_treasureBeach();
+	},
+	"HIDDEN_ITEM_ONE_ISLAND_TREASURE_BEACH_PEARL_2": function() {
+		return can_treasureBeach();
+	},
+	"HIDDEN_ITEM_ONE_ISLAND_TREASURE_BEACH_ULTRA_BALL_2": function() {
+		return can_treasureBeach();
+	},
+	"ITEM_ONE_ISLAND_KINDLE_ROAD_MAX_REPEL": function() {
+		if (can_surf()) {
+			return can_one();
+		}
+	},
+	"ITEM_ONE_ISLAND_KINDLE_ROAD_CARBOS": function() {
+		if (can_surf() && can_rockSmash()) {
+			return can_one();
+		}
+	},
+	"ITEM_ONE_ISLAND_KINDLE_ROAD_ETHER": function() {
+		if (can_surf() && can_rockSmash()) {
+			return can_one();
+		}
+	},
+	"NPC_GIFT_GOT_HM06": function() {
+		if (can_surf()) {
+			return can_one();
+		}
+	},
+	// Two
+	"ITEM_TWO_ISLAND_REVIVE": function() {
+		if (can_cut()) {
+			return can_two();
+		}
+	},
+	"NPC_GIFT_GOT_MOON_STONE_FROM_JOYFUL_GAME_CORNER": function() {
+		if (has("EVENT_FIND_LOSTELLE") && has("ITEM_METEORITE")) {
+			return can_two();
+		}
+	},
+	"EVENT_DELIVER_METEORITE": function() {
+		if (has("EVENT_FIND_LOSTELLE") && has("ITEM_METEORITE")) {
+			return can_two();
+		}
+	},
+	"HIDDEN_ITEM_TWO_ISLAND_CAPE_BRINK_RARE_CANDY": function() {
+		return can_areaHidden(can_two());
+	},
+	"HIDDEN_ITEM_TWO_ISLAND_CAPE_BRINK_PP_MAX": function() {
+		if (can_surf()) {
+			return can_areaHidden(can_two());
+		}
+	},
+	// Three
+	// Berry Forest
+	"HIDDEN_ITEM_THREE_ISLAND_BERRY_FOREST_RAZZ_BERRY": function() {
+		return can_areaHidden(can_three());
+	},
+	"HIDDEN_ITEM_THREE_ISLAND_BERRY_FOREST_ORAN_BERRY": function() {
+		return can_areaHidden(can_three());
+	},
+	"HIDDEN_ITEM_THREE_ISLAND_BERRY_FOREST_PERSIM_BERRY": function() {
+		return can_areaHidden(can_three());
+	},
+	"HIDDEN_ITEM_THREE_ISLAND_BERRY_FOREST_PINAP_BERRY": function() {
+		return can_areaHidden(can_three());
+	},
+	"HIDDEN_ITEM_THREE_ISLAND_BERRY_FOREST_CHESTO_BERRY": function() {
+		return can_areaHidden(can_three());
+	},
+	"ITEM_THREE_ISLAND_BERRY_FOREST_FULL_HEAL": function() {
+		return can_three();
+	},
+	"HIDDEN_ITEM_THREE_ISLAND_BERRY_FOREST_NANAB_BERRY": function() {
+		return can_areaHidden(can_three());
+	},
+	"HIDDEN_ITEM_THREE_ISLAND_BERRY_FOREST_CHERI_BERRY": function() {
+		return can_areaHidden(can_three());
+	},
+	"HIDDEN_ITEM_THREE_ISLAND_BERRY_FOREST_WEPEAR_BERRY": function() {
+		return can_areaHidden(can_three());
+	},
+	"HIDDEN_ITEM_THREE_ISLAND_BERRY_FOREST_BLUK_BERRY": function() {
+		return can_areaHidden(can_three());
+	},
+	"ITEM_THREE_ISLAND_BERRY_FOREST_MAX_ETHER": function() {
+		return can_three();
+	},
+	"HIDDEN_ITEM_THREE_ISLAND_BERRY_FOREST_RAWST_BERRY": function() {
+		return can_areaHidden(can_three());
+	},
+	"HIDDEN_ITEM_THREE_ISLAND_BERRY_FOREST_ASPEAR_BERRY": function() {
+		return can_areaHidden(can_three());
+	},
+	"HIDDEN_ITEM_THREE_ISLAND_BERRY_FOREST_PECHA_BERRY": function() {
+		return can_areaHidden(can_three());
+	},
+	"EVENT_FIND_LOSTELLE": function() {
+		return can_three();
+	},
+	"NPC_GIFT_RESCUED_LOSTELLE": function() {
+		return can_three();
+	},
+	"HIDDEN_ITEM_THREE_ISLAND_BERRY_FOREST_LUM_BERRY": function() {
+		return can_areaHidden(can_three());
+	},
+	"ITEM_THREE_ISLAND_BERRY_FOREST_MAX_ELIXIR": function() {
+		if (can_cut() && can_surf()) {
+			return can_three();
+		}
+	},
+	// Dunsparce Tunnel
+	"HIDDEN_ITEM_THREE_ISLAND_DUNSPARCE_TUNNEL_NUGGET": function() {
+		return can_areaHidden(can_three());
+	},
+	"NPC_GIFT_GOT_NUGGET_FROM_DUNSPARCE_TUNNEL": function() {
+		return can_three();
+	},
+	"NPC_GIFT_GOT_FULL_RESTORE_FROM_THREE_ISLAND_DEFENDER": function() {
+		return can_three();
+	},
+	"ITEM_THREE_ISLAND_ZINC": function() {
+		if (can_cut()) {
+			return can_three();
+		}
+	},
+	"HIDDEN_ITEM_THREE_ISLAND_PP_UP": function() {
+		if (can_cut()) {
+			return can_areaHidden(can_three());
+		}
+	},
+	"HIDDEN_ITEM_THREE_ISLAND_BOND_BRIDGE_MAX_REPEL": function() {
+		return can_areaHidden(can_three());
+	},
+	"HIDDEN_ITEM_THREE_ISLAND_BOND_BRIDGE_PEARL": function() {
+		return can_areaHidden(can_three());
+	},
+	"HIDDEN_ITEM_THREE_ISLAND_BOND_BRIDGE_STARDUST": function() {
+		return can_areaHidden(can_three());
+	},
+	// Four
+	// Icefall Cave
+	"ITEM_FOUR_ISLAND_ICEFALL_CAVE_1F_ULTRA_BALL": function() {
+		if (can_surf()) {
+			return can_four_five_six_seven();
+		}
+	},
+	"ITEM_FOUR_ISLAND_ICEFALL_CAVE_1F_HM07": function() {
+		if (can_surf()) {
+			return can_four_five_six_seven();
+		}
+	},
+	"ITEM_FOUR_ISLAND_ICEFALL_CAVE_B1F_NEVER_MELT_ICE": function() {
+		if (can_surf()) {
+			return can_four_five_six_seven();
+		}
+	},
+	"ITEM_FOUR_ISLAND_ICEFALL_CAVE_B1F_FULL_RESTORE": function() {
+		if (can_surf()) {
+			return can_four_five_six_seven();
+		}
+	},
+	"HIDDEN_ITEM_FOUR_ISLAND_PEARL": function() {
+		return can_areaHidden(can_four_five_six_seven());
+	},
+	"HIDDEN_ITEM_FOUR_ISLAND_ULTRA_BALL": function() {
+		return can_areaHidden(can_four_five_six_seven());
+	},
+	"ITEM_FOUR_ISLAND_STAR_PIECE": function() {
+		if (can_rockSmash()) {
+			return can_four_five_six_seven();
+		}
+	},
+	"ITEM_FOUR_ISLAND_STARDUST": function() {
+		if (can_surf()) {
+			return can_four_five_six_seven();
+		}
+	},
+	// Five
+	// Rocket Warehouse
+	"ITEM_FIVE_ISLAND_ROCKET_WAREHOUSE_BIG_PEARL": function() {
+		return can_rocketWarehouse();
+	},
+	"ITEM_FIVE_ISLAND_ROCKET_WAREHOUSE_PEARL": function() {
+		return can_rocketWarehouse();
+	},
+	"ITEM_FIVE_ISLAND_ROCKET_WAREHOUSE_UP_GRADE": function() {
+		return can_rocketWarehouse();
+	},
+	"HIDDEN_ITEM_FIVE_ISLAND_ROCKET_WAREHOUSE_NET_BALL": function() {
+		return can_areaHidden(can_rocketWarehouse());
+	},
+	"ITEM_FIVE_ISLAND_ROCKET_WAREHOUSE_TM36": function() {
+		return can_rocketWarehouse();
+	},
+	"NPC_GIFT_RECOVERED_SAPPHIRE": function() {
+		return can_rocketWarehouse();
+	},
+	"HIDDEN_ITEM_FIVE_ISLAND_ROCKET_WAREHOUSE_NEST_BALL": function() {
+		return can_areaHidden(can_rocketWarehouse());
+	},
+	// Lost Cave
+	"ITEM_FIVE_ISLAND_LOST_CAVE_ROOM10_SILK_SCARF": function() {
+		if (can_surf()) {
+			return can_four_five_six_seven();
+		}
+	},
+	"ITEM_FIVE_ISLAND_LOST_CAVE_ROOM11_LAX_INCENSE": function() {
+		if (can_surf()) {
+			return can_four_five_six_seven();
+		}
+	},
+	"ITEM_FIVE_ISLAND_LOST_CAVE_ROOM12_SEA_INCENSE": function() {
+		if (can_surf()) {
+			return can_four_five_six_seven();
+		}
+	},
+	"ITEM_FIVE_ISLAND_LOST_CAVE_ROOM13_MAX_REVIVE": function() {
+		if (can_surf()) {
+			return can_four_five_six_seven();
+		}
+	},
+	"ITEM_FIVE_ISLAND_LOST_CAVE_ROOM14_RARE_CANDY": function() {
+		if (can_surf()) {
+			return can_four_five_six_seven();
+		}
+	},
+	"ITEM_FIVE_ISLAND_MEADOW_MAX_POTION": function() {
+		if (can_cut()) {
+			return can_four_five_six_seven();
+		}
+	},
+	"ITEM_FIVE_ISLAND_MEADOW_PP_UP": function() {
+		if (can_surf()) {
+			return can_four_five_six_seven();
+		}
+	},
+	"HIDDEN_ITEM_FIVE_ISLAND_MEMORIAL_PILLAR_RAZZ_BERRY": function() {
+		if (can_surf()) {
+			return can_areaHidden(can_four_five_six_seven());
+		}
+	},
+	"HIDDEN_ITEM_FIVE_ISLAND_MEMORIAL_PILLAR_BLUK_BERRY": function() {
+		if (can_surf()) {
+			return can_areaHidden(can_four_five_six_seven());
+		}
+	},
+	"HIDDEN_ITEM_FIVE_ISLAND_MEMORIAL_PILLAR_SITRUS_BERRY": function() {
+		if (can_surf()) {
+			return can_areaHidden(can_four_five_six_seven());
+		}
+	},
+	"NPC_GIFT_GOT_TM42_AT_MEMORIAL_PILLAR": function() {
+		if (can_surf() && can_four_five_six_seven()) {
+			if (can_celadon() || (has("EVENT_FIND_LOSTELLE") && can_two())) {
+				return "logical";
+			}
+			return "possible";
+		}
+	},
+	"ITEM_FIVE_ISLAND_MEMORIAL_PILLAR_METAL_COAT": function() {
+		if (can_surf()) {
+			return can_four_five_six_seven();
+		}
+	},
+	"HIDDEN_ITEM_FIVE_ISLAND_MEMORIAL_PILLAR_BIG_PEARL": function() {
+		if (can_surf()) {
+			return can_areaHidden(can_four_five_six_seven());
+		}
+	},
+	"HIDDEN_ITEM_FIVE_ISLAND_RESORT_GORGEOUS_NEST_BALL": function() {
+		if (can_surf()) {
+			return can_four_five_six_seven();
+		}
+	},
+	"HIDDEN_ITEM_FIVE_ISLAND_RESORT_GORGEOUS_STARDUST_2": function() {
+		if (can_surf()) {
+			return can_areaHidden(can_four_five_six_seven());
+		}
+	},
+	"HIDDEN_ITEM_FIVE_ISLAND_RESORT_GORGEOUS_STARDUST": function() {
+		if (can_surf()) {
+			return can_areaHidden(can_four_five_six_seven());
+		}
+	},
+	"HIDDEN_ITEM_FIVE_ISLAND_RESORT_GORGEOUS_STAR_PIECE": function() {
+		if (can_surf()) {
+			return can_areaHidden(can_four_five_six_seven());
+		}
+	},
+	// Six
+	"HIDDEN_ITEM_SIX_ISLAND_LEPPA_BERRY": function() {
+		return can_areaHidden(can_four_five_six_seven());
+	},
+	"HIDDEN_ITEM_SIX_ISLAND_WATER_PATH_PINAP_BERRY": function() {
+		return can_areaHidden(can_four_five_six_seven());
+	},
+	"HIDDEN_ITEM_SIX_ISLAND_WATER_PATH_ASPEAR_BERRY": function() {
+		return can_areaHidden(can_four_five_six_seven());
+	},
+	"ITEM_SIX_ISLAND_WATER_PATH_DRAGON_SCALE": function() {
+		if (can_surf()) {
+			return can_four_five_six_seven();
+		}
+	},
+	"HIDDEN_ITEM_SIX_ISLAND_WATER_PATH_ORAN_BERRY": function() {
+		if (can_surf()) {
+			return can_areaHidden(can_four_five_six_seven());
+		}
+	},
+	"ITEM_SIX_ISLAND_WATER_PATH_ELIXIR": function() {
+		if (can_surf()) {
+			return can_four_five_six_seven();
+		}
+	},
+	"ITEM_SIX_ISLAND_RUIN_VALLEY_SUN_STONE": function() {
+		if (can_strength()) {
+			return can_four_five_six_seven();
+		}
+	},
+	"ITEM_SIX_ISLAND_RUIN_VALLEY_HP_UP": function() {
+		if (can_strength()) {
+			return can_four_five_six_seven();
+		}
+	},
+	"ITEM_SIX_ISLAND_RUIN_VALLEY_FULL_RESTORE": function() {
+		if (can_strength()) {
+			return can_four_five_six_seven();
+		}
+	},
+	"HIDDEN_ITEM_SIX_ISLAND_GREEN_PATH_ULTRA_BALL": function() {
+		if (can_surf()) {
+			return can_areaHidden(can_four_five_six_seven());
+		}
+	},
+	"HIDDEN_ITEM_SIX_ISLAND_OUTCAST_ISLAND_STAR_PIECE": function() {
+		if (can_surf()) {
+			return can_areaHidden(can_four_five_six_seven());
+		}
+	},
+	"ITEM_SIX_ISLAND_OUTCAST_ISLAND_PP_UP": function() {
+		if (can_surf()) {
+			return can_four_five_six_seven();
+		}
+	},
+	"HIDDEN_ITEM_SIX_ISLAND_OUTCAST_ISLAND_NET_BALL": function() {
+		if (can_surf()) {
+			return can_areaHidden(can_four_five_six_seven());
+		}
+	},
+	// Seven
+	"HIDDEN_ITEM_SEVEN_ISLAND_SEVAULT_CANYON_ENTRANCE_RAWST_BERRY": function() {
+		return can_areaHidden(can_four_five_six_seven());
+	},
+	"ITEM_SEVEN_ISLAND_SEVAULT_CANYON_NUGGET": function() {
+		return can_four_five_six_seven();
+	},
+	"ITEM_SEVEN_ISLAND_SEVAULT_CANYON_MAX_ELIXIR": function() {
+		return can_four_five_six_seven();
+	},
+	"ITEM_SEVEN_ISLAND_SEVAULT_CANYON_KINGS_ROCK": function() {
+		if (can_strength() && can_rockSmash()) {
+			return can_four_five_six_seven();
+		}
+	},
+	"HIDDEN_ITEM_SEVEN_ISLAND_SEVAULT_CANYON_CHERI_BERRY": function() {
+		return can_areaHidden(can_four_five_six_seven());
+	},
+	"ITEM_SEVEN_ISLAND_SEVAULT_CANYON_HOUSE_LUCKY_PUNCH": function() {
+		return can_four_five_six_seven();
+	},
+	"HIDDEN_ITEM_SEVEN_ISLAND_TANOBY_RUINS_HEART_SCALE_4": function() {
+		if (can_surf()) {
+			return can_areaHidden(can_four_five_six_seven());
+		}
+	},
+	"HIDDEN_ITEM_SEVEN_ISLAND_TANOBY_RUINS_HEART_SCALE": function() {
+		if (can_surf()) {
+			return can_areaHidden(can_four_five_six_seven());
+		}
+	},
+	"HIDDEN_ITEM_SEVEN_ISLAND_TANOBY_RUINS_HEART_SCALE_2": function() {
+		if (can_surf()) {
+			return can_areaHidden(can_four_five_six_seven());
+		}
+	},
+	"HIDDEN_ITEM_SEVEN_ISLAND_TANOBY_RUINS_HEART_SCALE_3": function() {
+		if (can_surf()) {
+			return can_areaHidden(can_four_five_six_seven());
+		}
+	},
+	"HIDDEN_ITEM_SEVEN_ISLAND_TRAINER_TOWER_NANAB_BERRY": function() {
+		return can_areaHidden(can_four_five_six_seven());
+	},
+	"HIDDEN_ITEM_SEVEN_ISLAND_TRAINER_TOWER_PEARL": function() {
+		return can_areaHidden(can_four_five_six_seven());
+	},
+	"HIDDEN_ITEM_SEVEN_ISLAND_TRAINER_TOWER_BIG_PEARL": function() {
+		return can_areaHidden(can_four_five_six_seven());
+	},
+	// Navel
+	"HIDDEN_ITEM_NAVEL_ROCK_SUMMIT_SACRED_ASH": function() {
+		if (has("ITEM_MYSTIC_TICKET")) {
+			return can_vermilion();
+		}
+	}
 }
