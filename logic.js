@@ -178,7 +178,32 @@ function can_cerulean() {
 }
 function can_ceruleanCave() {
 	if (can_cerulean() && can_surf()) {
-		return can_gym_badge_count(cerulean_cave_requirement, cerulean_cave_count);
+		const requirement = parseInt(cerulean_cave_requirement.classList[1].substring(1), 10);
+		if (requirement === 0) {
+			if (has("EVENT_DEFEAT_BLUE") && has("EVENT_RESTORE_NETWORK")) {
+				return "logical";
+			}
+			return;
+		}
+		if (requirement === 1) {
+			return has("EVENT_DEFEAT_BLUE");
+		}
+		if (requirement === 2) {
+			return has("EVENT_RESTORE_NETWORK");
+		}
+		const count = parseInt(cerulean_cave_count.classList[1].substring(1), 10);
+		if (requirement === 3) {
+			if (count_gyms() >= count) {
+				return "logical";
+			}
+			return;
+		}
+		if (requirement === 4) {
+			if (count_badges() >= count) {
+				return "logical";
+			}
+			return;
+		}
 	}
 }
 function can_vermilion() {
@@ -202,11 +227,6 @@ function can_vermilion() {
 	}
 	// From Pallet-Cinnabar-One
 	if (can_surf() && has("EVENT_DEFEAT_BLAINE")) {
-		return "logical";
-	}
-}
-function can_ssAnne() {
-	if (can_vermilion() && has("SS_Ticket")) {
 		return "logical";
 	}
 }
@@ -271,21 +291,6 @@ function can_saffron() {
 		if (can_surf() && has("EVENT_DEFEAT_BLAINE")) {
 			return "logical";
 		}
-	}
-}
-function can_silph() {
-	if (can_saffron() && has("EVENT_RESCUE_FUJI")) {
-		return "logical";
-	}
-}
-function can_silphCardKey() {
-	if (can_silph() && has("Card_Key")) {
-		return "logical";
-	}
-}
-function can_saffronGym() {
-	if (can_saffron() && has("EVENT_FREE_SILPH")) {
-		return "logical";
 	}
 }
 function can_fuchsia() {
@@ -815,7 +820,7 @@ const locationLogic = {
 		}
 	},
 	"ITEM_SILPH_CO_3F_HYPER_POTION": function() {
-		if (has("EVENT_RESCUE_FUJI") && has("ITEM_KEY_CARD")) {
+		if (has("EVENT_RESCUE_FUJI") && has("ITEM_CARD_KEY")) {
 			return can_saffron();
 		}
 	},
@@ -830,17 +835,17 @@ const locationLogic = {
 		}
 	},
 	"ITEM_SILPH_CO_4F_FULL_HEAL": function() {
-		if (has("EVENT_RESCUE_FUJI") && has("ITEM_KEY_CARD")) {
+		if (has("EVENT_RESCUE_FUJI") && has("ITEM_CARD_KEY")) {
 			return can_saffron();
 		}
 	},
 	"ITEM_SILPH_CO_4F_ESCAPE_ROPE": function() {
-		if (has("EVENT_RESCUE_FUJI") && has("ITEM_KEY_CARD")) {
+		if (has("EVENT_RESCUE_FUJI") && has("ITEM_CARD_KEY")) {
 			return can_saffron();
 		}
 	},
 	"ITEM_SILPH_CO_4F_MAX_REVIVE": function() {
-		if (has("EVENT_RESCUE_FUJI") && has("ITEM_KEY_CARD")) {
+		if (has("EVENT_RESCUE_FUJI") && has("ITEM_CARD_KEY")) {
 			return can_saffron();
 		}
 	},
@@ -855,12 +860,12 @@ const locationLogic = {
 		}
 	},
 	"HIDDEN_ITEM_SILPH_CO_5F_ELIXIR": function() {
-		if (has("EVENT_RESCUE_FUJI") && has("ITEM_KEY_CARD")) {
+		if (has("EVENT_RESCUE_FUJI") && has("ITEM_CARD_KEY")) {
 			return can_areaHidden(can_saffron());
 		}
 	},
 	"ITEM_SILPH_CO_5F_PROTEIN": function() {
-		if (has("EVENT_RESCUE_FUJI") && has("ITEM_KEY_CARD")) {
+		if (has("EVENT_RESCUE_FUJI") && has("ITEM_CARD_KEY")) {
 			return can_saffron();
 		}
 	},
@@ -875,12 +880,12 @@ const locationLogic = {
 		}
 	},
 	"ITEM_SILPH_CO_6F_HP_UP": function() {
-		if (has("EVENT_RESCUE_FUJI") && has("ITEM_KEY_CARD")) {
+		if (has("EVENT_RESCUE_FUJI") && has("ITEM_CARD_KEY")) {
 			return can_saffron();
 		}
 	},
 	"ITEM_SILPH_CO_6F_X_SPECIAL": function() {
-		if (has("EVENT_RESCUE_FUJI") && has("ITEM_KEY_CARD")) {
+		if (has("EVENT_RESCUE_FUJI") && has("ITEM_CARD_KEY")) {
 			return can_saffron();
 		}
 	},
@@ -890,12 +895,12 @@ const locationLogic = {
 		}
 	},
 	"ITEM_SILPH_CO_7F_TM08": function() {
-		if (has("EVENT_RESCUE_FUJI") && has("ITEM_KEY_CARD")) {
+		if (has("EVENT_RESCUE_FUJI") && has("ITEM_CARD_KEY")) {
 			return can_saffron();
 		}
 	},
 	"HIDDEN_ITEM_SILPH_CO_7F_ZINC": function() {
-		if (has("EVENT_RESCUE_FUJI") && has("ITEM_KEY_CARD")) {
+		if (has("EVENT_RESCUE_FUJI") && has("ITEM_CARD_KEY")) {
 			return can_areaHidden(can_saffron());
 		}
 	},
@@ -910,12 +915,12 @@ const locationLogic = {
 		}
 	},
 	"HIDDEN_ITEM_SILPH_CO_9F_MAX_POTION": function() {
-		if (has("EVENT_RESCUE_FUJI") && has("ITEM_KEY_CARD")) {
+		if (has("EVENT_RESCUE_FUJI") && has("ITEM_CARD_KEY")) {
 			return can_areaHidden(can_saffron());
 		}
 	},
 	"HIDDEN_ITEM_SILPH_CO_9F_CALCIUM": function() {
-		if (has("EVENT_RESCUE_FUJI") && has("ITEM_KEY_CARD")) {
+		if (has("EVENT_RESCUE_FUJI") && has("ITEM_CARD_KEY")) {
 			return can_areaHidden(can_saffron());
 		}
 	},
@@ -945,17 +950,17 @@ const locationLogic = {
 		}
 	},
 	"HIDDEN_ITEM_SILPH_CO_11F_REVIVE": function() {
-		if (has("EVENT_RESCUE_FUJI") && has("ITEM_KEY_CARD")) {
+		if (has("EVENT_RESCUE_FUJI") && has("ITEM_CARD_KEY")) {
 			return can_areaHidden(can_saffron());
 		}
 	},
 	"NPC_GIFT_GOT_MASTER_BALL_FROM_SILPH": function() {
-		if (has("EVENT_RESCUE_FUJI") && has("ITEM_KEY_CARD")) {
+		if (has("EVENT_RESCUE_FUJI") && has("ITEM_CARD_KEY")) {
 			return can_saffron();
 		}
 	},
 	"EVENT_FREE_SILPH": function() {
-		if (has("EVENT_RESCUE_FUJI") && has("ITEM_KEY_CARD")) {
+		if (has("EVENT_RESCUE_FUJI") && has("ITEM_CARD_KEY")) {
 			return can_saffron();
 		}
 	},
@@ -1116,47 +1121,555 @@ const locationLogic = {
 	"ITEM_POKEMON_MANSION_B1F_TM22": function() {
 		return can_cinnabar();
 	},
+	// Indigo Plateau
+	"EVENT_DEFEAT_BLUE": function() {
+		return can_e4();
+	},
 	// ////////////////////
 	// Routes
 	// ////////////////////
 	// 1
-	
+	"NPC_GIFT_GOT_POTION_ON_ROUTE_1": function() {
+		return "logical";
+	},
 	// 2
-	
+	"ITEM_ROUTE2_ETHER": function() {
+		return can_cut();
+	},
+	"ITEM_ROUTE2_PARALYZE_HEAL": function() {
+		return can_cut();
+	},
+	"NPC_GIFT_GOT_HM05": function() {
+		return can_cut();
+	},
 	// Viridian Forest
-	
+	"HIDDEN_ITEM_VIRIDIAN_FOREST_ANTIDOTE": function() {
+		return can_areaHidden(can_pewter());
+	},
+	"ITEM_VIRIDIAN_FOREST_POKE_BALL": function() {
+		return can_pewter();
+	},
+	"ITEM_VIRIDIAN_FOREST_POTION_2": function() {
+		return can_pewter();
+	},
+	"ITEM_VIRIDIAN_FOREST_ANTIDOTE": function() {
+		return can_pewter();
+	},
+	"ITEM_VIRIDIAN_FOREST_POTION": function() {
+		return can_pewter();
+	},
+	"HIDDEN_ITEM_VIRIDIAN_FOREST_POTION": function() {
+		return can_areaHidden(can_pewter());
+	},
+	// 3
+	"HIDDEN_ITEM_ROUTE3_ORAN_BERRY": function() {
+		return can_areaHidden(can_route3());
+	},
 	// 4
+	"HIDDEN_ITEM_ROUTE4_PERSIM_BERRY": function() {
+		return can_areaHidden(can_route3());
+	},
+	"HIDDEN_ITEM_ROUTE4_GREAT_BALL": function() {
+		return can_areaHidden(can_route3());
+	},
+	"HIDDEN_ITEM_ROUTE4_RAZZ_BERRY": function() {
+		return can_areaHidden(can_route3());
+	},
+	"ITEM_ROUTE4_TM05": function() {
+		return can_route3();
+	},
 	// Mt. Moon
-	
+	"ITEM_MT_MOON_1F_TM09": function() {
+		return can_route3();
+	},
+	"ITEM_MT_MOON_1F_PARALYZE_HEAL": function() {
+		return can_route3();
+	},
+	"HIDDEN_ITEM_MT_MOON_B1F_TINY_MUSHROOM_3": function() {
+		return can_areaHidden(can_route3());
+	},
+	"HIDDEN_ITEM_MT_MOON_B1F_BIG_MUSHROOM_3": function() {
+		return can_areaHidden(can_route3());
+	},
+	"HIDDEN_ITEM_MT_MOON_B1F_BIG_MUSHROOM": function() {
+		return can_areaHidden(can_route3());
+	},
+	"ITEM_MT_MOON_B2F_STAR_PIECE": function() {
+		return can_route3();
+	},
+	"ITEM_MT_MOON_1F_POTION": function() {
+		return can_route3();
+	},
+	"ITEM_MT_MOON_1F_RARE_CANDY": function() {
+		return can_route3();
+	},
+	"ITEM_MT_MOON_1F_ESCAPE_ROPE": function() {
+		return can_route3();
+	},
+	"HIDDEN_ITEM_MT_MOON_B1F_TINY_MUSHROOM_2": function() {
+		return can_areaHidden(can_route3());
+	},
+	"ITEM_MT_MOON_B2F_TM46": function() {
+		return can_route3();
+	},
+	"HIDDEN_ITEM_MT_MOON_B2F_ETHER": function() {
+		return can_areaHidden(can_route3());
+	},
+	"ITEM_MT_MOON_1F_MOON_STONE": function() {
+		return can_route3();
+	},
+	"HIDDEN_ITEM_MT_MOON_B1F_BIG_MUSHROOM_2": function() {
+		return can_areaHidden(can_route3());
+	},
+	"ITEM_MT_MOON_B2F_REVIVE": function() {
+		return can_route3();
+	},
+	"HIDDEN_ITEM_MT_MOON_B2F_MOON_STONE": function() {
+		return can_areaHidden(can_route3());
+	},
+	"NPC_GIFT_GOT_DOME_FOSSIL": function() {
+		return can_route3();
+	},
+	"NPC_GIFT_GOT_HELIX_FOSSIL": function() {
+		return can_route3();
+	},
+	"ITEM_MT_MOON_B2F_ANTIDOTE": function() {
+		return can_route3();
+	},
+	"HIDDEN_ITEM_MT_MOON_B1F_TINY_MUSHROOM": function() {
+		return can_areaHidden(can_route3());
+	},
 	// 5
-	
+	"HIDDEN_ITEM_UNDERGROUND_PATH_NORTH_SOUTH_TUNNEL_ANTIDOTE": function() {
+		return can_areaHidden(can_vermilion());
+	},
+	"HIDDEN_ITEM_UNDERGROUND_PATH_NORTH_SOUTH_TUNNEL_PARALYZE_HEAL": function() {
+		return can_areaHidden(can_vermilion());
+	},
+	"HIDDEN_ITEM_UNDERGROUND_PATH_NORTH_SOUTH_TUNNEL_AWAKENING": function() {
+		return can_areaHidden(can_vermilion());
+	},
+	"HIDDEN_ITEM_UNDERGROUND_PATH_NORTH_SOUTH_TUNNEL_POTION": function() {
+		return can_areaHidden(can_vermilion());
+	},
+	"HIDDEN_ITEM_UNDERGROUND_PATH_NORTH_SOUTH_TUNNEL_ETHER": function() {
+		return can_areaHidden(can_vermilion());
+	},
+	"HIDDEN_ITEM_UNDERGROUND_PATH_NORTH_SOUTH_TUNNEL_ICE_HEAL": function() {
+		return can_areaHidden(can_vermilion());
+	},
+	"HIDDEN_ITEM_UNDERGROUND_PATH_NORTH_SOUTH_TUNNEL_BURN_HEAL": function() {
+		return can_areaHidden(can_vermilion());
+	},
+	// 6
+	"HIDDEN_ITEM_UNDERGROUND_PATH_NORTH_SOUTH_TUNNEL_ICE_HEAL": function() {
+		return can_areaHidden(can_vermilion());
+	},
+	"HIDDEN_ITEM_UNDERGROUND_PATH_NORTH_SOUTH_TUNNEL_BURN_HEAL": function() {
+		return can_areaHidden(can_vermilion());
+	},
+	// 7
+	"HIDDEN_ITEM_ROUTE7_WEPEAR_BERRY": function() {
+		return can_areaHidden(can_cerulean());
+	},
 	// 8
-	
+	"HIDDEN_ITEM_ROUTE8_LUM_BERRY": function() {
+		return can_areaHidden(can_lavender());
+	},
+	"HIDDEN_ITEM_ROUTE8_RAWST_BERRY": function() {
+		return can_areaHidden(can_lavender());
+	},
+	"HIDDEN_ITEM_ROUTE8_LEPPA_BERRY": function() {
+		return can_areaHidden(can_lavender());
+	},
+	"HIDDEN_ITEM_UNDERGROUND_PATH_EAST_WEST_TUNNEL_ICE_HEAL": function() {
+		return can_areaHidden(can_lavender());
+	},
+	"HIDDEN_ITEM_UNDERGROUND_PATH_EAST_WEST_TUNNEL_ANTIDOTE": function() {
+		return can_areaHidden(can_lavender());
+	},
+	"HIDDEN_ITEM_UNDERGROUND_PATH_EAST_WEST_TUNNEL_ETHER": function() {
+		return can_areaHidden(can_lavender());
+	},
+	"HIDDEN_ITEM_UNDERGROUND_PATH_EAST_WEST_TUNNEL_BURN_HEAL": function() {
+		return can_areaHidden(can_lavender());
+	},
+	"HIDDEN_ITEM_UNDERGROUND_PATH_EAST_WEST_TUNNEL_AWAKENING": function() {
+		return can_areaHidden(can_lavender());
+	},
+	"HIDDEN_ITEM_UNDERGROUND_PATH_EAST_WEST_TUNNEL_PARALYZE_HEAL": function() {
+		return can_areaHidden(can_lavender());
+	},
+	"HIDDEN_ITEM_UNDERGROUND_PATH_EAST_WEST_TUNNEL_POTION": function() {
+		return can_areaHidden(can_lavender());
+	},
 	// 9
-	
+	"ITEM_ROUTE9_TM40": function() {
+		return can_route9();
+	},
+	"HIDDEN_ITEM_ROUTE9_ETHER": function() {
+		return can_areaHidden(can_route9());
+	},
+	"ITEM_ROUTE9_BURN_HEAL": function() {
+		return can_route9();
+	},
+	"HIDDEN_ITEM_ROUTE9_CHESTO_BERRY": function() {
+		return can_areaHidden(can_route9());
+	},
+	"HIDDEN_ITEM_ROUTE9_RARE_CANDY": function() {
+		return can_areaHidden(can_route9());
+	},
 	// 10
+	"HIDDEN_ITEM_ROUTE10_PERSIM_BERRY": function() {
+		return can_areaHidden(can_route9());
+	},
+	"HIDDEN_ITEM_ROUTE10_CHERI_BERRY": function() {
+		return can_areaHidden(can_route9());
+	},
+	"HIDDEN_ITEM_ROUTE10_NANAB_BERRY": function() {
+		return can_areaHidden(can_route9());
+	},
+	"HIDDEN_ITEM_ROUTE10_MAX_ETHER": function() {
+		if (can_surf()) {
+			return can_areaHidden(can_route9());
+		}
+	},
+	// Rock Tunnel
+	"ITEM_ROCK_TUNNEL_1F_REPEL": function() {
+		if (can_lavender()) {
+			if (can_flash()) {
+				return "logical";
+			}
+			return "possible";
+		}
+	},
+	"ITEM_ROCK_TUNNEL_1F_ESCAPE_ROPE": function() {
+		if (can_lavender()) {
+			if (can_flash()) {
+				return "logical";
+			}
+			return "possible";
+		}
+	},
+	"ITEM_ROCK_TUNNEL_1F_PEARL": function() {
+		if (can_lavender()) {
+			if (can_flash()) {
+				return "logical";
+			}
+			return "possible";
+		}
+	},
+	"ITEM_ROCK_TUNNEL_B1F_REVIVE": function() {
+		if (can_lavender()) {
+			if (can_flash()) {
+				return "logical";
+			}
+			return "possible";
+		}
+	},
+	"ITEM_ROCK_TUNNEL_B1F_MAX_ETHER": function() {
+		if (can_lavender()) {
+			if (can_flash()) {
+				return "logical";
+			}
+			return "possible";
+		}
+	},
 	// Power Plant
-	
+	"ITEM_POWER_PLANT_MAX_POTION": function() {
+		if (can_surf()) {
+			return can_route9();
+		}
+	},
+	"ITEM_POWER_PLANT_TM17": function() {
+		if (can_surf()) {
+			return can_route9();
+		}
+	},
+	"ITEM_POWER_PLANT_ELIXIR": function() {
+		if (can_surf()) {
+			return can_route9();
+		}
+	},
+	"ITEM_POWER_PLANT_TM25": function() {
+		if (can_surf()) {
+			return can_route9();
+		}
+	},
+	"ITEM_POWER_PLANT_THUNDER_STONE": function() {
+		if (can_surf()) {
+			return can_route9();
+		}
+	},
+	"HIDDEN_ITEM_POWER_PLANT_MAX_ELIXIR": function() {
+		if (can_surf()) {
+			return can_areaHidden(can_route9());
+		}
+	},
+	"HIDDEN_ITEM_POWER_PLANT_THUNDER_STONE": function() {
+		if (can_surf()) {
+			return can_areaHidden(can_route9());
+		}
+	},
+	"NPC_GIFT_GOT_EVERSTONE_FROM_OAKS_AIDE": function() {
+		return can_route9();
+	},
+	"HIDDEN_ITEM_ROUTE10_SUPER_POTION": function() {
+		return can_areaHidden(can_route9());
+	},
 	// 11
-	
+	"ITEM_ROUTE11_AWAKENING": function() {
+		return can_vermilion();
+	},
+	"ITEM_ROUTE11_X_DEFEND": function() {
+		return can_vermilion();
+	},
+	"HIDDEN_ITEM_ROUTE11_ESCAPE_ROPE": function() {
+		return can_areaHidden(can_vermilion());
+	},
+	"ITEM_ROUTE11_GREAT_BALL": function() {
+		return can_vermilion();
+	},
+	"NPC_GIFT_GOT_ITEMFINDER": function() {
+		return can_vermilion();
+	},
 	// 12
-	
+	"HIDDEN_ITEM_ROUTE12_HYPER_POTION": function() {
+		return can_areaHidden(can_lavender());
+	},
+	"HIDDEN_ITEM_ROUTE12_LEFTOVERS": function() {
+		if (has("ITEM_POKE_FLUTE")) {
+			return can_areaHidden(can_vermilion());
+		}
+	},
+	"ITEM_ROUTE12_TM48": function() {
+		if (can_surf()) {
+			return can_lavender();
+		}
+	},
+	"ITEM_ROUTE12_IRON": function() {
+		if (can_cut()) {
+			return can_fuchsia();
+		}
+	},
+	"HIDDEN_ITEM_ROUTE12_RARE_CANDY": function() {
+		if (can_cut()) {
+			return can_areaHidden(can_fuchsia());
+		}
+	},
+	"NPC_GIFT_GOT_SUPER_ROD": function() {
+		return can_fuchsia();
+	},
+	"NPC_GIFT_GOT_TM27": function() {
+		return can_lavender();
+	},
 	// 13
-	
+	"HIDDEN_ITEM_ROUTE13_PP_UP": function() {
+		return can_areaHidden(can_fuchsia());
+	},
+	// 14
+	"HIDDEN_ITEM_ROUTE14_PINAP_BERRY": function() {
+		return can_areaHidden(can_fuchsia());
+	},
+	"HIDDEN_ITEM_ROUTE14_ZINC": function() {
+		if (can_cut()) {
+			return can_areaHidden(can_fuchsia());
+		}
+	},
 	// 15
-	
+	"ITEM_ROUTE15_TM18": function() {
+		if (can_cut()) {
+			return can_fuchsia();
+		}
+	},
+	"NPC_GIFT_GOT_EXP_SHARE_FROM_OAKS_AIDE": function() {
+		return can_fuchsia();
+	},
 	// 16
-	
+	"HIDDEN_ITEM_ROUTE16_LEFTOVERS": function() {
+		if (has("ITEM_POKE_FLUTE")) {
+			return can_areaHidden(can_celadon());
+		}
+	},
+	"NPC_GIFT_GOT_HM02": function() {
+		if (can_cut()) {
+			return can_celadon();
+		}
+	},
+	"NPC_GIFT_GOT_AMULET_COIN_FROM_OAKS_AIDE": function() {
+		let fromCeladon;
+		if (has("ITEM_POKE_FLUTE")) {
+			fromCeladon = can_celadon();
+			if (fromCeladon === "logical") {
+				return "logical";
+			}
+		}
+		if (has("ITEM_BICYCLE")) {
+			let fromFuchsia = can_fuchsia();
+			if (fromFuchsia) {
+				return fromFuchsia;
+			}
+		}
+		return fromCeladon;
+	},
 	// 17
-	
+	"HIDDEN_ITEM_ROUTE17_FULL_RESTORE": function() {
+		if (has("ITEM_BICYCLE")) {
+			return can_areaHidden(can_fuchsia());
+		}
+	},
+	"HIDDEN_ITEM_ROUTE17_PP_UP": function() {
+		if (has("ITEM_BICYCLE")) {
+			return can_areaHidden(can_fuchsia());
+		}
+	},
+	"HIDDEN_ITEM_ROUTE17_RARE_CANDY": function() {
+		if (has("ITEM_BICYCLE")) {
+			return can_areaHidden(can_fuchsia());
+		}
+	},
+	"HIDDEN_ITEM_ROUTE17_MAX_REVIVE": function() {
+		if (has("ITEM_BICYCLE")) {
+			return can_areaHidden(can_fuchsia());
+		}
+	},
+	"HIDDEN_ITEM_ROUTE17_MAX_ELIXIR": function() {
+		if (has("ITEM_BICYCLE")) {
+			return can_areaHidden(can_fuchsia());
+		}
+	},
 	// 20
+	"HIDDEN_ITEM_ROUTE20_STARDUST": function() {
+		return can_areaHidden(can_cinnabar());
+	},
 	// Seafoam Islands
-	
+	"ITEM_SEAFOAM_ISLANDS_1F_ICE_HEAL": function() {
+		return can_cinnabar();
+	},
+	"ITEM_SEAFOAM_ISLANDS_B1F_REVIVE": function() {
+		return can_cinnabar();
+	},
+	"ITEM_SEAFOAM_ISLANDS_B1F_WATER_STONE": function() {
+		return can_cinnabar();
+	},
+	"ITEM_SEAFOAM_ISLANDS_B2F_BIG_PEARL": function() {
+		return can_cinnabar();
+	},
+	"HIDDEN_ITEM_SEAFOAM_ISLANDS_B3F_NUGGET": function() {
+		return can_areaHidden(can_cinnabar());
+	},
+	"HIDDEN_ITEM_SEAFOAM_ISLANDS_B4F_WATER_STONE": function() {
+		return can_areaHidden(can_cinnabar());
+	},
+	"ITEM_SEAFOAM_ISLANDS_B4F_ULTRA_BALL": function() {
+		return can_cinnabar();
+	},
+	// 21
+	"HIDDEN_ITEM_ROUTE21_NORTH_PEARL": function() {
+		return can_areaHidden(can_cinnabar());
+	},
 	// 23
+	"HIDDEN_ITEM_ROUTE23_LEPPA_BERRY": function() {
+		if (can_surf()) {
+			return can_areaHidden(can_route22Gate());
+		}
+	},
+	"HIDDEN_ITEM_ROUTE23_MAX_ETHER": function() {
+		if (can_surf()) {
+			return can_areaHidden(can_route22Gate());
+		}
+	},
+	"HIDDEN_ITEM_ROUTE23_ULTRA_BALL": function() {
+		if (can_surf()) {
+			return can_areaHidden(can_route22Gate());
+		}
+	},
+	"HIDDEN_ITEM_ROUTE23_ASPEAR_BERRY": function() {
+		if (can_surf()) {
+			return can_areaHidden(can_route22Gate());
+		}
+	},
+	"HIDDEN_ITEM_ROUTE23_FULL_RESTORE": function() {
+		if (can_surf()) {
+			return can_areaHidden(can_route22Gate());
+		}
+	},
+	"HIDDEN_ITEM_ROUTE23_SITRUS_BERRY": function() {
+		return can_areaHidden(can_victoryRoad());
+	},
+	"HIDDEN_ITEM_ROUTE23_LUM_BERRY": function() {
+		return can_areaHidden(can_victoryRoad_complete());
+	},
+	"HIDDEN_ITEM_ROUTE23_MAX_ELIXIR": function() {
+		return can_areaHidden(can_victoryRoad_complete());
+	},
 	// Victory Road
-	
+	"HIDDEN_ITEM_VICTORY_ROAD_1F_FULL_RESTORE": function() {
+		return can_areaHidden(can_victoryRoad_complete());
+	},
+	"ITEM_VICTORY_ROAD_1F_TM02": function() {
+		return can_victoryRoad_complete();
+	},
+	"ITEM_VICTORY_ROAD_1F_RARE_CANDY": function() {
+		return can_victoryRoad_complete();
+	},
+	"HIDDEN_ITEM_VICTORY_ROAD_1F_ULTRA_BALL": function() {
+		return can_areaHidden(can_victoryRoad_complete());
+	},
+	"ITEM_VICTORY_ROAD_2F_TM37": function() {
+		return can_victoryRoad_complete();
+	},
+	"ITEM_VICTORY_ROAD_2F_FULL_HEAL": function() {
+		return can_victoryRoad_complete();
+	},
+	"ITEM_VICTORY_ROAD_2F_TM07": function() {
+		return can_victoryRoad_complete();
+	},
+	"ITEM_VICTORY_ROAD_2F_GUARD_SPEC": function() {
+		return can_victoryRoad_complete();
+	},
+	"ITEM_VICTORY_ROAD_3F_MAX_REVIVE": function() {
+		return can_victoryRoad_complete();
+	},
+	"ITEM_VICTORY_ROAD_3F_TM50": function() {
+		return can_victoryRoad_complete();
+	},
 	// 24
-	
+	"NPC_GIFT_GOT_NUGGET_FROM_ROCKET_GRUNT": function() {
+		return can_cerulean();
+	},
+	"ITEM_ROUTE24_TM45": function() {
+		return can_cerulean();
+	},
+	"HIDDEN_ITEM_ROUTE24_PECHA_BERRY": function() {
+		return can_areaHidden(can_cerulean());
+	},
 	// 25
+	"HIDDEN_ITEM_ROUTE25_ELIXIR": function() {
+		return can_areaHidden(can_cerulean());
+	},
+	"ITEM_ROUTE25_TM43": function() {
+		if (can_cut()) {
+			return "logical";
+		}
+		if (can_cerulean()) {
+			return "possible";
+		}
+	},
+	"HIDDEN_ITEM_ROUTE25_ORAN_BERRY": function() {
+		return can_areaHidden(can_cerulean());
+	},
+	"HIDDEN_ITEM_ROUTE25_BLUK_BERRY": function() {
+		return can_areaHidden(can_cerulean());
+	},
+	"HIDDEN_ITEM_ROUTE25_ETHER": function() {
+		return can_areaHidden(can_cerulean());
+	},
 	// Bill's House
+	"EVENT_ASSIST_BILL": function() {
+		return can_cerulean();
+	},
+	"NPC_GIFT_GOT_SS_TICKET": function() {
+		return can_cerulean();
+	},
 }
