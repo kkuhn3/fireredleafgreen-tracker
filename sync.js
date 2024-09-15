@@ -5,8 +5,8 @@ let idToString = {};
 let idToItem = {};
 let idToLocation = {};
 let idToEvent = {};
-// https://github.com/ArchipelagoMW/Archipelago/blob/main/worlds/pokemon_rb/locations.py
-const offset = 172000000;
+// https://github.com/vyneras/Archipelago/blob/frlg-stable/worlds/pokemon_frlg/data.py
+const offset = 6420000;
 async function loadStaticContent() {
 	const res1 = await fetch('./static/idToString.json', {
 		method: 'GET'

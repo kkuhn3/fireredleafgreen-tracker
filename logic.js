@@ -562,12 +562,6 @@ const locationLogic = {
 	"NPC_GIFT_GOT_POKEBALLS_FROM_OAK_AFTER_22_RIVAL": function() {
 		return has("EVENT_RETURN_PARCEL");
 	},
-	// "NPC_GIFT_RECEIVED_MYSTIC_TICKET": function() {
-	// 	return has("EVENT_DEFEAT_BLUE");
-	// },
-	// "NPC_GIFT_RECEIVED_AURORA_TICKET": function() {
-	// 	return has("EVENT_DEFEAT_BLUE");
-	// },
 	// Viridian City
 	"NPC_GIFT_GOT_TEACHY_TV": function() {
 		return has("EVENT_RETURN_PARCEL");
@@ -847,6 +841,57 @@ const locationLogic = {
 		}
 	},
 	// Celadon Game Corner
+	"NPC_GIFT_GOT_10_COINS_FROM_GAMBLER": function() {
+		if (has("ITEM_COIN_CASE")) {
+			return can_celadon();
+		}
+	},
+	"NPC_GIFT_GOT_20_COINS_FROM_GAMBLER": function() {
+		if (has("ITEM_COIN_CASE")) {
+			return can_celadon();
+		}
+	},
+	"NPC_GIFT_GOT_20_COINS_FROM_GAMBLER_2": function() {
+		if (has("ITEM_COIN_CASE")) {
+			return can_celadon();
+		}
+	},
+	"HIDDEN_ITEM_CELADON_CITY_GAME_CORNER_COINS": function() {
+		return can_areaHidden(can_celadon());
+	},
+	"HIDDEN_ITEM_CELADON_CITY_GAME_CORNER_COINS_2": function() {
+		return can_areaHidden(can_celadon());
+	},
+	"HIDDEN_ITEM_CELADON_CITY_GAME_CORNER_COINS_3": function() {
+		return can_areaHidden(can_celadon());
+	},
+	"HIDDEN_ITEM_CELADON_CITY_GAME_CORNER_COINS_4": function() {
+		return can_areaHidden(can_celadon());
+	},
+	"HIDDEN_ITEM_CELADON_CITY_GAME_CORNER_COINS_5": function() {
+		return can_areaHidden(can_celadon());
+	},
+	"HIDDEN_ITEM_CELADON_CITY_GAME_CORNER_COINS_6": function() {
+		return can_areaHidden(can_celadon());
+	},
+	"HIDDEN_ITEM_CELADON_CITY_GAME_CORNER_COINS_7": function() {
+		return can_areaHidden(can_celadon());
+	},
+	"HIDDEN_ITEM_CELADON_CITY_GAME_CORNER_COINS_8": function() {
+		return can_areaHidden(can_celadon());
+	},
+	"HIDDEN_ITEM_CELADON_CITY_GAME_CORNER_COINS_9": function() {
+		return can_areaHidden(can_celadon());
+	},
+	"HIDDEN_ITEM_CELADON_CITY_GAME_CORNER_COINS_10": function() {
+		return can_areaHidden(can_celadon());
+	},
+	"HIDDEN_ITEM_CELADON_CITY_GAME_CORNER_COINS_11": function() {
+		return can_areaHidden(can_celadon());
+	},
+	"HIDDEN_ITEM_CELADON_CITY_GAME_CORNER_COINS_12": function() {
+		return can_areaHidden(can_celadon());
+	},
 	// Rocket Hideout
 	"ITEM_ROCKET_HIDEOUT_B1F_ESCAPE_ROPE": function() {
 		return can_celadon();
@@ -1235,6 +1280,16 @@ const locationLogic = {
 	// Indigo Plateau
 	"EVENT_DEFEAT_BLUE": function() {
 		return can_e4();
+	},
+	"NPC_GIFT_RECEIVED_MYSTIC_TICKET": function() {
+		if (has("EVENT_DEFEAT_BLUE")) {
+			return can_e4();
+		}
+	},
+	"NPC_GIFT_RECEIVED_AURORA_TICKET": function() {
+		if (has("EVENT_DEFEAT_BLUE")) {
+			return can_e4();
+		}
 	},
 	// ////////////////////
 	// Routes
