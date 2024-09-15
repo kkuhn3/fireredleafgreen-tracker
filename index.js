@@ -401,28 +401,43 @@ function countchecks() {
 function parseSettings() {
 	const urlSearch = new URLSearchParams(window.location.search);
 	if (isIntLessThan(urlSearch.get("hi"), 1)) {
-		setSettingClass(HIDDEN_ITEMS, "_" + urlSearch.get("hi"));
+		setSettingClass(shuffle_hidden, "_" + urlSearch.get("hi"));
+	}
+	if (isIntLessThan(urlSearch.get("ko"), 1)) {
+		setSettingClass(kanto_only, "_" + urlSearch.get("ko"));
 	}
 	if (isIntLessThan(urlSearch.get("r3"), 1)) {
-		setSettingClass(ROUTE_3_CONDITION, "_" + urlSearch.get("r3"));
+		setSettingClass(pewter_city_roadblock, "_" + urlSearch.get("r3"));
 	}
-	if (isIntLessThan(urlSearch.get("fc"), 1)) {
-		setSettingClass(FOSSILS_CONDITION, "_" + urlSearch.get("fc"));
+	if (isIntLessThan(urlSearch.get("vgr"), 7)) {
+		setSettingClass(viridian_gym_requirement, "_" + urlSearch.get("vgr"));
 	}
-	if (isIntLessThan(urlSearch.get("vg"), 7)) {
-		setSettingClass(VIRIDIAN_GYM_CONDITION, "_" + urlSearch.get("vg"));
+	if (isIntLessThan(urlSearch.get("vgc"), 1)) {
+		setSettingClass(viridian_gym_count, "_" + urlSearch.get("vgc"));
 	}
-	if (isIntLessThan(urlSearch.get("r22"), 1)) {
-		setSettingClass(ROUTE_22_CONDITION, "_" + urlSearch.get("r22"));
+	if (isIntLessThan(urlSearch.get("r2r"), 8)) {
+		setSettingClass(route22_gate_requirement, "_" + urlSearch.get("r2r"));
 	}
-	if (isIntLessThan(urlSearch.get("vr"), 8)) {
-		setSettingClass(VICTORY_ROAD_CONDITION, "_" + urlSearch.get("vr"));
+	if (isIntLessThan(urlSearch.get("r2c"), 2)) {
+		setSettingClass(route22_gate_count, "_" + urlSearch.get("r2c"));
 	}
-	if (isIntLessThan(urlSearch.get("e4"), 2)) {
-		setSettingClass(ELITE_4_CONDITION, "_" + urlSearch.get("e4"));
+	if (isIntLessThan(urlSearch.get("vrr"), 2)) {
+		setSettingClass(route23_guard_requirement, "_" + urlSearch.get("vrr"));
 	}
-	if (isIntLessThan(urlSearch.get("cc"), 2)) {
-		setSettingClass(CERULEAN_CAVE_CONDITION, "_" + urlSearch.get("cc"));
+	if (isIntLessThan(urlSearch.get("vrc"), 2)) {
+		setSettingClass(route23_guard_count, "_" + urlSearch.get("vrc"));
+	}
+	if (isIntLessThan(urlSearch.get("e4r"), 2)) {
+		setSettingClass(elite_four_requirement, "_" + urlSearch.get("e4r"));
+	}
+	if (isIntLessThan(urlSearch.get("e4c"), 2)) {
+		setSettingClass(elite_four_count, "_" + urlSearch.get("e4c"));
+	}
+	if (isIntLessThan(urlSearch.get("ccr"), 2)) {
+		setSettingClass(cerulean_cave_requirement, "_" + urlSearch.get("ccr"));
+	}
+	if (isIntLessThan(urlSearch.get("ccc"), 2)) {
+		setSettingClass(cerulean_cave_count, "_" + urlSearch.get("ccc"));
 	}
 
 	if (urlSearch.get("name") && urlSearch.get("port")) {

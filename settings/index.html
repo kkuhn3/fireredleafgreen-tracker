@@ -26,7 +26,15 @@
 		<label>Hidden Items</label>
 		<select id="HI">
 			<option value="0" selected>Excluded</option>
-			<option value="1">Randomized</option>
+			<option value="1">Randomize Nonrecurring</option>
+			<option value="2">Randomize All</option>
+		</select>
+	</div>
+	<div>
+		<label>Kanto Only</label>
+		<select id="KO">
+			<option value="0" selected>All Regions</option>
+			<option value="1">Only Kanto</option>
 		</select>
 	</div>
 	<div>
@@ -39,32 +47,17 @@
 			<option value="4">Obtain any Badge</option>
 		</select>
 	</div>
+	
 	<div>
-		<label>Fossils for Second Fossil Check</label>
-		<select id="FC">
-			<option value="0">0</option>
-			<option value="1">1</option>
-			<option value="2">2</option>
-			<option value="3" selected>3</option>
+		<label>Viridian Gym Requirement</label>
+		<select id="VGR">
+			<option value="0">Badges</option>
+			<option value="1" selected>Gyms</option>
 		</select>
 	</div>
 	<div>
-		<label>Badges for Viridian Gym</label>
-		<select id="VG">
-			<option value="0">0</option>
-			<option value="1">1</option>
-			<option value="2">2</option>
-			<option value="3">3</option>
-			<option value="4">4</option>
-			<option value="5">5</option>
-			<option value="6">6</option>
-			<option value="7" selected>7</option>
-			<option value="8">8</option>
-		</select>
-	</div>
-	<div>
-		<label>Badges for Route 22 Gate</label>
-		<select id="R22">
+		<label>Viridian Gym Requires</label>
+		<select id="VGC">
 			<option value="0">0</option>
 			<option value="1">1</option>
 			<option value="2">2</option>
@@ -73,12 +66,19 @@
 			<option value="5">5</option>
 			<option value="6">6</option>
 			<option value="7" selected>7</option>
-			<option value="8">8</option>
+		</select>
+	</div>
+
+	<div>
+		<label>Route 22 Gate Requirement</label>
+		<select id="R2R">
+			<option value="0">Badges</option>
+			<option value="1" selected>Gyms</option>
 		</select>
 	</div>
 	<div>
-		<label>Badges for Victory Road</label>
-		<select id="VR">
+		<label>Route 22 Gate Requires</label>
+		<select id="R2C">
 			<option value="0">0</option>
 			<option value="1">1</option>
 			<option value="2">2</option>
@@ -90,9 +90,17 @@
 			<option value="8" selected>8</option>
 		</select>
 	</div>
+
 	<div>
-		<label>Badges for Elite Four</label>
-		<select id="E4">
+		<label>Victory Road Requirement</label>
+		<select id="VRR">
+			<option value="0">Badges</option>
+			<option value="1" selected>Gyms</option>
+		</select>
+	</div>
+	<div>
+		<label>Victory Road Requires</label>
+		<select id="VRC">
 			<option value="0">0</option>
 			<option value="1">1</option>
 			<option value="2">2</option>
@@ -104,9 +112,42 @@
 			<option value="8" selected>8</option>
 		</select>
 	</div>
+
 	<div>
-		<label>Badges for Cerulean Cave</label>
-		<select id="CC">
+		<label>Elite Four Requirement</label>
+		<select id="E4R">
+			<option value="0">Badges</option>
+			<option value="1" selected>Gyms</option>
+		</select>
+	</div>
+	<div>
+		<label>Elite Four Requires</label>
+		<select id="E4C">
+			<option value="0">0</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8" selected>8</option>
+		</select>
+	</div>
+
+	<div>
+		<label>Cerulean Cave Requirement</label>
+		<select id="CCR">
+			<option value="0">Vanilla</option>
+			<option value="1">Become Champion</option>
+			<option value="2">Restore Network</option>
+			<option value="3">Badges</option>
+			<option value="4" selected>Gyms</option>
+		</select>
+	</div>
+	<div>
+		<label>Cerulean Cave Requires</label>
+		<select id="CCC">
 			<option value="0">0</option>
 			<option value="1">1</option>
 			<option value="2">2</option>
