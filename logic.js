@@ -11,14 +11,42 @@ function count_badges() {
 }
 function count_gyms() {
 	let count = 0;
-	const badges = ["EVENT_DEFEAT_GIOVANNI", "EVENT_DEFEAT_BROCK", "EVENT_DEFEAT_MISTY", "EVENT_DEFEAT_SURGE", "EVENT_DEFEAT_ERIKA", "EVENT_DEFEAT_SABRINA", "EVENT_DEFEAT_KOGA", "EVENT_DEFEAT_BLAINE"];
-	for (const badge of badges) {
-		const badgeDiv = document.getElementById(badge);
-		if (badgeDiv.classList.contains("subchecked")) {
+	const gyms = ["EVENT_DEFEAT_GIOVANNI", "EVENT_DEFEAT_BROCK", "EVENT_DEFEAT_MISTY", "EVENT_DEFEAT_SURGE", "EVENT_DEFEAT_ERIKA", "EVENT_DEFEAT_SABRINA", "EVENT_DEFEAT_KOGA", "EVENT_DEFEAT_BLAINE"];
+	for (const gym of gyms) {
+		const gymDiv = document.getElementById(gym);
+		if (gymDiv.classList.contains("subchecked")) {
 			count = count + 1;
 		}
 	}
 	return count;
+}
+function could_gyms() {
+	let countLogical = 0;
+	let countPossible = 0;
+	const gyms = ["EVENT_DEFEAT_BROCK", "EVENT_DEFEAT_MISTY", "EVENT_DEFEAT_SURGE", "EVENT_DEFEAT_ERIKA", "EVENT_DEFEAT_SABRINA", "EVENT_DEFEAT_KOGA", "EVENT_DEFEAT_BLAINE"];
+	for (const gym of gyms) {
+		if (has(gym)) {
+			countLogical = countLogical + 1;
+		}
+		else {
+			const logicalness = locationLogic[gym]();
+			if (logicalness === "logical") {
+				countLogical = countLogical + 1;
+			}
+			else if (logicalness === "possible") {
+				countPossible = countPossible + 1;
+			}
+		}
+	}
+	return [countLogical, countPossible];
+}
+function could_gym_badge_count(requirementDiv, countDiv, countBadges, couldGyms) {
+	const wantGyms = parseInt(requirementDiv.classList[1].substring(1), 10);
+	const wantCount = parseInt(countDiv.classList[1].substring(1), 10);
+	if (wantGyms) {
+		return couldGyms >= wantCount;
+	}
+	return countBadges >= wantCount;
 }
 
 function has(item) {
@@ -485,7 +513,37 @@ function can_rocketWarehouse() {
 	}
 }
 
-const locationHighlight = {}
+
+const locationHighlight = {
+	"EVENT_DEFEAT_BLUE": function() {
+		if (can_surf() && can_strength()) {
+			const couldGyms = could_gyms();
+			let logicalGyms = couldGyms[0];
+			let possibleGyms = couldGyms[1];
+			const countBadges = count_badges();
+			if (has("EVENT_DEFEAT_GIOVANNI") || could_gym_badge_count(viridian_gym_requirement, viridian_gym_count, countBadges, logicalGyms)) {
+				logicalGyms = logicalGyms + 1;
+			}
+			else if (could_gym_badge_count(viridian_gym_requirement, viridian_gym_count, countBadges, logicalGyms + possibleGyms)) {
+				possibleGyms = possibleGyms + 1;
+			}
+			if (could_gym_badge_count(route22_gate_requirement, route22_gate_count, countBadges, logicalGyms)) {
+				if (could_gym_badge_count(route23_guard_requirement, route23_guard_count, countBadges, logicalGyms)) {
+					if (could_gym_badge_count(elite_four_requirement, elite_four_count, countBadges, logicalGyms)) {
+						return "logical";
+					}
+				}
+			}
+			if (could_gym_badge_count(route22_gate_requirement, route22_gate_count, countBadges, logicalGyms + possibleGyms)) {
+				if (could_gym_badge_count(route23_guard_requirement, route23_guard_count, countBadges, logicalGyms + possibleGyms)) {
+					if (could_gym_badge_count(elite_four_requirement, elite_four_count, countBadges, logicalGyms + possibleGyms)) {
+						return "possible";
+					}
+				}
+			}
+		}
+	}
+}
 
 const locationLogic = {
 	// ////////////////////
