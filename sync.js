@@ -36,7 +36,7 @@ function connect() {
 		socket.send(`[{
 			"cmd" : "Connect",
 			"password" : "",
-			"game" : "Pokemon Red and Blue",
+			"game" : "Pokemon Firered and Leafgreen",
 			"name" : "` + pname + `",
 			"tags" : ["Tracker"],
 			"version" : {
@@ -143,14 +143,6 @@ function gotLocation(id) {
 	let eventName = idToEvent[id - offset];
 	if (eventName) {
 		let div = document.getElementById(eventName);
-
-		// Special exception for fossils. Get one early, one later.
-		if (eventName === "EVENT_FOSSIL_A") {
-			if (div.classList.contains("subchecked")) {
-				addClassName(document.getElementById("Npc_Fossil_B"), "subchecked");
-			}
-		}
-
 		if (div.classList.contains("sub")) {
 			addClassName(document.getElementById(eventName), "subchecked");
 		}

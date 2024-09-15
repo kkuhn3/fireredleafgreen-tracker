@@ -1,3 +1,19 @@
 {
-	"//ID": "//https://github.com/ArchipelagoMW/Archipelago/blob/main/worlds/pokemon_rb/items.py"
+	"//ID": "//https://github.com/vyneras/Archipelago/blob/frlg-stable/worlds/pokemon_frlg/data/extracted_data.json",
+	"//Not autoed": "EVENT_DEFEAT_BLUE",
+    "578": "EVENT_RETURN_PARCEL",
+    "1221": "EVENT_DEFEAT_GIOVANNI",
+    "1214": "EVENT_DEFEAT_BROCK",
+    "1215": "EVENT_DEFEAT_MISTY",
+    "1216": "EVENT_DEFEAT_SURGE",
+    "573": "EVENT_RESCUE_FUJI",
+    "1217": "EVENT_DEFEAT_ERIKA",
+    "1219": "EVENT_DEFEAT_SABRINA",
+    "592": "EVENT_FREE_SILPH",
+    "1218": "EVENT_DEFEAT_KOGA",
+    "1220": "EVENT_DEFEAT_BLAINE",
+    "564": "EVENT_ASSIST_BILL",
+    "763": "EVENT_DELIVER_METEORITE",
+    "675": "EVENT_FIND_LOSTELLE",
+    "732": "EVENT_RELEASE_POKEMON"
 }
