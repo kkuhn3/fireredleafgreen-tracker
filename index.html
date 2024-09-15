@@ -11,22 +11,22 @@
 	<body>
 		<div id="leftCol">
 			<div id="settings">
-				<img class="setting _0" id="shuffle_hidden" onclick="settingIterate(this, 2)">
-				<img class="setting _0" id="kanto_only" onclick="settingIterate(this, 1)">
-				<img class="setting _0" id="pewter_city_roadblock" onclick="settingIterate(this, 4)">
-				<img class="setting _0" id="viridian_gym_requirement" onclick="settingIterate(this, 1)">
-				<img class="setting _0" id="route22_gate_requirement" onclick="settingIterate(this, 1)">
-				<img class="setting _0" id="route23_guard_requirement" onclick="settingIterate(this, 1)">
-				<img class="setting _0" id="elite_four_requirement" onclick="settingIterate(this, 1)">
-				<img class="setting _0" id="cerulean_cave_requirement" onclick="settingIterate(this, 4)">
+				<img class="setting _0" id="shuffle_hidden" onclick="shuffleHiddenOnClick()">
+				<img class="setting _0" id="kanto_only" onclick="kantoOnlyOnClick()">
+				<img class="setting _0" id="pewter_city_roadblock" onclick="settingIterateOnClick(this, 4)">
+				<img class="setting _0" id="viridian_gym_requirement" onclick="settingIterateOnClick(this, 1)">
+				<img class="setting _0" id="route22_gate_requirement" onclick="settingIterateOnClick(this, 1)">
+				<img class="setting _0" id="route23_guard_requirement" onclick="settingIterateOnClick(this, 1)">
+				<img class="setting _0" id="elite_four_requirement" onclick="settingIterateOnClick(this, 1)">
+				<img class="setting _0" id="cerulean_cave_requirement" onclick="ceruleanCaveOnClick()">
 				<div class="setting notImageImage" id="CHECK_CHECKED">0</div>
 				<div class="setting notImageImage" id="CHECK_LOGICAL">50</div>
 				<div class="setting notImageImage" id="CHECK_TOTAL">300</div>
-				<img class="setting _0" id="viridian_gym_count" onclick="settingIterate(this, 7)">
-				<img class="setting _0" id="route22_gate_count" onclick="settingIterate(this, 8)">
-				<img class="setting _0" id="route23_guard_count" onclick="settingIterate(this, 8)">
-				<img class="setting _0" id="elite_four_count" onclick="settingIterate(this, 8)">
-				<img class="setting _0" id="cerulean_cave_count" onclick="settingIterate(this, 8)">
+				<img class="setting _0" id="viridian_gym_count" onclick="settingIterateOnClick(this, 7)">
+				<img class="setting _0" id="route22_gate_count" onclick="settingIterateOnClick(this, 8)">
+				<img class="setting _0" id="route23_guard_count" onclick="settingIterateOnClick(this, 8)">
+				<img class="setting _0" id="elite_four_count" onclick="settingIterateOnClick(this, 8)">
+				<img class="setting _0" id="cerulean_cave_count" onclick="settingIterateOnClick(this, 8)">
 			</div>
 			<div id="items">
 				<img class="item" id="ITEM_BADGE_1">
@@ -588,6 +588,7 @@
 				<div class="sub" id="HIDDEN_ITEM_FIVE_ISLAND_ROCKET_WAREHOUSE_NET_BALL"></div>
 				<div class="sub" id="ITEM_FIVE_ISLAND_ROCKET_WAREHOUSE_TM36"></div>
 				<div class="sub" id="NPC_GIFT_RECOVERED_SAPPHIRE"></div>
+				<div class="sub" id="EVENT_RELEASE_POKEMON"></div>
 				<div class="sub" id="HIDDEN_ITEM_FIVE_ISLAND_ROCKET_WAREHOUSE_NEST_BALL"></div>
 			</div>
 			<!--Lost Cave-->
@@ -647,7 +648,9 @@
 	<script>
 		addOnClick();
 		parseSettings();
-		// hideToMatch(HIDDEN_ITEMS, "Hidden_Item_");
+		hideToMatchHidden();
+		hideToMatchKanto();
+		hideToMatchCeruleanCave();
 		updateLocations();
 		updateGroups();
 		countchecks();

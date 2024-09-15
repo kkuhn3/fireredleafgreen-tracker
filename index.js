@@ -160,30 +160,107 @@ function setSettingClass(div, className) {
 }
 
 //Settings - items in logic
-function hideToMatch(div, prefix) {
-	let show = parseInt(div.classList[1].substring(1), 10);
-	for (let location of document.getElementsByClassName("location")) {
-		if (location.id.substring(0,prefix.length) === prefix) {
-			ifTrueAddClass(location, !show, "hiddenhidden");
-		}
-	}
-	for (let sub of document.getElementsByClassName("sub")) {
-		if (sub.id.substring(0,prefix.length) === prefix) {
-			ifTrueAddClass(sub, !show, "hiddenhidden");
-		}
-	}
-}
-function settingOnClick(div, prefix) {
-	settingIterate(div, 1);
-	hideToMatch(div, prefix);
-	updateGroups();
-	countchecks();
-}
 function settingIterateOnClick(div, count) {
 	settingIterate(div, count);
 	updateLocations();
 	updateGroups();
 	countchecks();
+}
+function shuffleHiddenOnClick() {
+	settingIterate(shuffle_hidden, 2);
+	groupBreakDown.innerHTML = "";
+	hideToMatchHidden();
+	updateLocations();
+	updateGroups();
+	countchecks();
+	if (currentGroup) {
+		groupFocus(document.getElementById(currentGroup));
+	}
+}
+function hideToMatchHidden() {
+	const enumInt = parseInt(shuffle_hidden.classList[1].substring(1), 10);
+	if (enumInt === 0) {
+		for (let divId of hiddenLocs) {
+			let div = document.getElementById(divId);
+			addClassName(div, "hiddenhidden");
+		}
+		for (let divId of recurringLocs) {
+			let div = document.getElementById(divId);
+			addClassName(div, "hiddenhidden");
+		}
+	}
+	else if (enumInt === 1) {
+		for (let divId of hiddenLocs) {
+			let div = document.getElementById(divId);
+			div.classList.remove("hiddenhidden");
+		}
+		for (let divId of recurringLocs) {
+			let div = document.getElementById(divId);
+			addClassName(div, "hiddenhidden");
+		}
+	}
+	else {
+		for (let divId of hiddenLocs) {
+			let div = document.getElementById(divId);
+			div.classList.remove("hiddenhidden");
+		}
+		for (let divId of recurringLocs) {
+			let div = document.getElementById(divId);
+			div.classList.remove("hiddenhidden");
+		}
+	}
+}
+function kantoOnlyOnClick() {
+	settingIterate(kanto_only, 1);
+	groupBreakDown.innerHTML = "";
+	hideToMatchKanto();
+	updateLocations();
+	updateGroups();
+	countchecks();
+	if (currentGroup) {
+		groupFocus(document.getElementById(currentGroup));
+	}
+}
+function hideToMatchKanto() {
+	const enumInt = parseInt(kanto_only.classList[1].substring(1), 10);
+	if (enumInt === 0) {
+		for (let divId of seviiLocs) {
+			let div = document.getElementById(divId);
+			div.classList.remove("althidden");
+		}
+	}
+	else {
+		for (let divId of seviiLocs) {
+			let div = document.getElementById(divId);
+			addClassName(div, "althidden");
+		}
+	}
+}
+function ceruleanCaveOnClick() {
+	settingIterate(cerulean_cave_requirement, 4);
+	groupBreakDown.innerHTML = "";
+	hideToMatchCeruleanCave();
+	updateLocations();
+	updateGroups();
+	countchecks();
+	if (currentGroup) {
+		groupFocus(document.getElementById(currentGroup));
+	}
+}
+function hideToMatchCeruleanCave() {
+	const enumInt = parseInt(cerulean_cave_requirement.classList[1].substring(1), 10);
+	if (enumInt === 0 || enumInt === 1) {
+		for (let divId of ceruleanCaveLocs) {
+			let div = document.getElementById(divId);
+			addClassName(div, "althidden");
+		}
+	}
+	else {
+		for (let divId of ceruleanCaveLocs) {
+			let div = document.getElementById(divId);
+			div.classList.remove("althidden");
+		}
+	}
 }
 
 // Groups
@@ -217,7 +294,7 @@ function updateGroup(group) {
 	let event = false;
 	let checked = true;
 	for (let sub of group.getElementsByClassName("sub")) {
-		if (!sub.classList.contains("hiddenhidden") && !sub.classList.contains("victoryhidden")) {
+		if (!sub.classList.contains("hiddenhidden") && !sub.classList.contains("althidden")) {
 			hidden = false;
 			if (!sub.classList.contains("subchecked")) {
 				checked = false;
@@ -292,7 +369,7 @@ function countchecks() {
 	for (let child of map.children) {
 		if (child.classList.contains("group")) {
 			for (let sub of child.children) {
-				if (!sub.id.includes("EVENT_") && !sub.classList.contains("hiddenhidden") && !sub.classList.contains("victoryhidden")) {
+				if (!sub.id.includes("EVENT_") && !sub.classList.contains("hiddenhidden") && !sub.classList.contains("althidden")) {
 					total = total + 1;
 					if (sub.classList.contains("subchecked")) {
 						checked = checked + 1;
@@ -304,7 +381,7 @@ function countchecks() {
 			}
 		}
 		else if (child.classList.contains("location")) {
-			if (!child.id.includes("EVENT_") && !child.classList.contains("hiddenhidden") && !child.classList.contains("victoryhidden")) {
+			if (!child.id.includes("EVENT_") && !child.classList.contains("hiddenhidden") && !child.classList.contains("althidden")) {
 				total = total + 1;
 				if (child.classList.contains("locationchecked")) {
 					checked = checked + 1;

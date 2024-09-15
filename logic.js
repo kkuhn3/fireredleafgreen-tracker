@@ -180,7 +180,7 @@ function can_ceruleanCave() {
 	if (can_cerulean() && can_surf()) {
 		const requirement = parseInt(cerulean_cave_requirement.classList[1].substring(1), 10);
 		if (requirement === 0) {
-			if (has("EVENT_DEFEAT_BLUE") && has("EVENT_RESTORE_NETWORK")) {
+			if (has("EVENT_DEFEAT_BLUE") && can_restoreNetwork()) {
 				return "logical";
 			}
 			return;
@@ -189,7 +189,7 @@ function can_ceruleanCave() {
 			return has("EVENT_DEFEAT_BLUE");
 		}
 		if (requirement === 2) {
-			return has("EVENT_RESTORE_NETWORK");
+			return can_restoreNetwork();
 		}
 		const count = parseInt(cerulean_cave_count.classList[1].substring(1), 10);
 		if (requirement === 3) {
@@ -443,6 +443,11 @@ function can_one() {
 function can_treasureBeach() {
 	if (can_surf()) {
 		return can_areaHidden(can_one());
+	}
+}
+function can_restoreNetwork() {
+	if (has("EVENT_DELIVER_METEORITE") && has("EVENT_RELEASE_POKEMON") && has("ITEM_RUBY") && has("ITEM_SAPPHIRE")) {
+		return can_one();
 	}
 }
 function can_two() {
@@ -1618,9 +1623,7 @@ const locationLogic = {
 	},
 	// 23
 	"HIDDEN_ITEM_ROUTE23_LEPPA_BERRY": function() {
-		if (can_surf()) {
-			return can_areaHidden(can_route22Gate());
-		}
+		return can_areaHidden(can_route22Gate());
 	},
 	"HIDDEN_ITEM_ROUTE23_MAX_ETHER": function() {
 		if (can_surf()) {
@@ -1975,6 +1978,9 @@ const locationLogic = {
 	"NPC_GIFT_RECOVERED_SAPPHIRE": function() {
 		return can_rocketWarehouse();
 	},
+	"EVENT_RELEASE_POKEMON": function() {
+		return can_rocketWarehouse();
+	},
 	"HIDDEN_ITEM_FIVE_ISLAND_ROCKET_WAREHOUSE_NEST_BALL": function() {
 		return can_areaHidden(can_rocketWarehouse());
 	},
@@ -2031,8 +2037,9 @@ const locationLogic = {
 	},
 	"NPC_GIFT_GOT_TM42_AT_MEMORIAL_PILLAR": function() {
 		if (can_surf() && can_four_five_six_seven()) {
-			if (can_celadon() || (has("EVENT_FIND_LOSTELLE") && can_two())) {
-				return "logical";
+			const celadonable = can_celadon();
+			if (celadonable) {
+				return celadonable;
 			}
 			return "possible";
 		}
