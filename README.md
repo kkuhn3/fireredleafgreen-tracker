@@ -1,6 +1,6 @@
-# redblue-tracker
+# fireredleafgreen-tracker
 
-An HTML and JS tracker for Red/Blue key item randomizers.
+An HTML and JS tracker for Firered/Leafgreen key item randomizers.
 
 ## Description
 
