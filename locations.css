@@ -8,6 +8,10 @@
 	left: 10.94407158836689%;
 	top: 68.328125%;
 }
+#PC_ITEM_POTION {
+	left: 9.512304250559284%;
+	top: 66.8125%;
+}
 /*Viridian City*/
 #NPC_GIFT_GOT_TEACHY_TV {
 	left: 9.941834451901565%;
@@ -38,6 +42,10 @@
 	left: 9.082774049217003%;
 	top: 19.046875%;
 }
+#NPC_GIFT_GOT_RUNNING_SHOES {
+	left: 13.548098434004475%;
+	top: 20.046875%;
+}
 /*Cerulean City*/
 #NPC_GIFT_GOT_FAME_CHECKER {
 	left: 41.14541387024609%;
@@ -60,8 +68,8 @@
 	top: 17.09375%;
 }
 #NPC_GIFT_GOT_POWDER_JAR {
-	left: 41.14541387024609%;
-	top: 17.078125%;
+	left: 40.28635346756152%;
+	top: 12.859375%;
 }
 #cerulean_cave {
 	left: 37.99552572706935%;
@@ -801,6 +809,15 @@
 #HIDDEN_ITEM_SEVEN_ISLAND_TRAINER_TOWER_BIG_PEARL {
 	left: 72.3400447427293%;
 	top: 44.875%;
+}
+/*todo - where exactly are these?*/
+#scanner_scientist {
+	left: 74.2102908277405%;
+	top: 49.515625%;
+}
+#NPC_GIFT_GOT_SCANNER {
+	left: 77.71812080536913%;
+	top: 80.921875%;
 }
 /*Navel Rock*/
 #HIDDEN_ITEM_NAVEL_ROCK_SUMMIT_SACRED_ASH {
