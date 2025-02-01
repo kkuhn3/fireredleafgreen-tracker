@@ -268,10 +268,13 @@ function can_lavender() {
 			return "logical";
 		}
 		//-Cerulean
-		if (can_flash() && can_rockSmash()) {
-			return "logical";
+		// New rocksmash rock between cerulean and route 9
+		if (can_rockSmash()) {
+			if (can_flash()) {
+				return "logical";
+			}
+			return "possible";
 		}
-		return "possible";
 	}
 }
 function can_celadon() {
