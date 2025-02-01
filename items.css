@@ -105,6 +105,9 @@
 #ITEM_MYSTIC_TICKET {
 	background-image: url(./images/items/ITEM_MYSTIC_TICKET.png);
 }
+#ITEM_SCANNER {
+	background-image: url(./images/items/ITEM_SCANNER.png);
+}
 
 /* Settings, not really items but similar enough */
 #shuffle_hidden._0 {

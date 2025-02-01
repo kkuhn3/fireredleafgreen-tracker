@@ -55,11 +55,8 @@ body {
 	background-repeat: no-repeat;
     background-position: center;
 }
+
 .smallItem {
-	width: 2.22222222222vw;
-	height: 2.22222222222vw;
-}
-.smallerItem {
 	width: 2vw;
 	height: 2vw;
 }

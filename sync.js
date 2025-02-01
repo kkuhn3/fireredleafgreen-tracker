@@ -36,13 +36,13 @@ function connect() {
 		socket.send(`[{
 			"cmd" : "Connect",
 			"password" : "",
-			"game" : "Pokemon Firered and Leafgreen",
+			"game" : "Pokemon FireRed and LeafGreen",
 			"name" : "` + pname + `",
 			"tags" : ["Tracker"],
 			"version" : {
 				"major": 0,
 				"minor": 5,
-				"build": 0,
+				"build": 1,
 				"class": "Version"
 			},
 			"items_handling" : 7,
