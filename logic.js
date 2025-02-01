@@ -129,9 +129,6 @@ function can_route3_from_pewter() {
 function can_plot_to_cerulean() {
 	return can_route3_from_pewter() && has("EVENT_RETURN_PARCEL");
 }
-function can_plot_to_vermilion() {
-	return can_plot_to_cerulean() && has("EVENT_ASSIST_BILL");
-}
 function can_gym_badge_count(requirementDiv, countDiv) {
 	const wantGyms = parseInt(requirementDiv.classList[1].substring(1), 10);
 	const wantCount = parseInt(countDiv.classList[1].substring(1), 10);
@@ -235,32 +232,13 @@ function can_ceruleanCave() {
 	}
 }
 function can_vermilion() {
-	// From Pallet-Viridian
-	if (can_cut()) {
-		return "logical";
-	}
-	// From Pallet-Viridian-Pewter-Cerulean
-	if (can_plot_to_vermilion()) {
-		return "logical";
-	}
-	// From Pallet-Cinnabar-Fuchsia
-	if (can_fuchsia_from_seafoam()) {
-		if (has("ITEM_POKE_FLUTE")) {
-			return "logical";
-		}
-		//-Lavender-Saffron
-		if (has("ITEM_TEA")) {
-			return "logical";
-		}
-	}
-	// From Pallet-Cinnabar-One
-	if (can_surf() && has("EVENT_DEFEAT_BLAINE")) {
-		return "logical";
-	}
+	// No requirements between these two towns. 
+	// Cut bush is removed on south side of Cerulean,
+	return can_cerulean()
 }
 function can_lavender() {
 	// From Pallet-Viridian-Pewter-Cerulean
-	if (can_plot_to_vermilion()) {
+	if (can_plot_to_cerulean()) {
 		//-Saffron
 		if (has("ITEM_TEA")) {
 			return "logical";
@@ -290,7 +268,7 @@ function can_lavender() {
 			return "logical";
 		}
 		//-Cerulean
-		if (can_flash()) {
+		if (can_flash() && can_rockSmash()) {
 			return "logical";
 		}
 		return "possible";
@@ -308,7 +286,7 @@ function can_saffron() {
 			return "logical";
 		}
 		// From Pallet-Viridian-Pewter-Cerulean
-		if (can_plot_to_vermilion()) {
+		if (can_plot_to_cerulean()) {
 			return "logical";
 		}
 		// From Pallet-Cinnabar-Fuchsia
@@ -327,7 +305,7 @@ function can_fuchsia() {
 		return "logical";
 	}
 	// From Pallet-Viridian-Pewter-Cerulean-Vermilion
-	if (can_plot_to_vermilion()) {
+	if (can_plot_to_cerulean()) {
 		if (has("ITEM_POKE_FLUTE")) {
 			return "logical";
 		}
@@ -410,7 +388,8 @@ function can_route3() {
 // 8 - can_lavender()
 // 9 
 function can_route9() {
-	if (can_cut()) {
+	// Extra Rocksmash rock added.
+	if (can_cut() && can_rockSmash()) {
 		return "logical";
 	}
 	if (can_lavender()) {
@@ -496,7 +475,6 @@ function can_four_five_six_seven() {
 		return can_vermilion();
 	}
 }
-// TODO: make a note of this in the ID to English Group Name
 function can_rocketWarehouse() {
 	// first can you get there
 	if (can_four_five_six_seven()) {
@@ -562,6 +540,9 @@ const locationLogic = {
 	"NPC_GIFT_GOT_POKEBALLS_FROM_OAK_AFTER_22_RIVAL": function() {
 		return has("EVENT_RETURN_PARCEL");
 	},
+	"PC_ITEM_POTION": function() {
+		return "logical";
+	},
 	// Viridian City
 	"NPC_GIFT_GOT_TEACHY_TV": function() {
 		return has("EVENT_RETURN_PARCEL");
@@ -603,6 +584,11 @@ const locationLogic = {
 	},
 	"NPC_GIFT_GOT_TM39_FROM_BROCK": function() {
 		return can_pewter();
+	},
+	"NPC_GIFT_GOT_RUNNING_SHOES": function() {
+		if (has("EVENT_DEFEAT_BROCK")) {
+			return can_route3();
+		}
 	},
 	// Cerulean City
 	"NPC_GIFT_GOT_FAME_CHECKER": function() {
@@ -1816,9 +1802,6 @@ const locationLogic = {
 		if (can_cut()) {
 			return "logical";
 		}
-		if (can_cerulean()) {
-			return "possible";
-		}
 	},
 	"HIDDEN_ITEM_ROUTE25_ORAN_BERRY": function() {
 		return can_areaHidden(can_cerulean());
@@ -2296,6 +2279,21 @@ const locationLogic = {
 	},
 	"HIDDEN_ITEM_SEVEN_ISLAND_TRAINER_TOWER_BIG_PEARL": function() {
 		return can_areaHidden(can_four_five_six_seven());
+	},
+	"NPC_GIFT_GOT_DEEP_SEA_SCALE": function() {
+		if (has("ITEM_SCANNER")) {
+			return can_four_five_six_seven();
+		}
+	},
+	"NPC_GIFT_GOT_DEEP_SEA_TOOTH": function() {
+		if (has("ITEM_SCANNER")) {
+			return can_four_five_six_seven();
+		}
+	},
+	"NPC_GIFT_GOT_SCANNER": function() {
+		if (can_surf()) {
+			return can_four_five_six_seven();
+		}
 	},
 	// Navel
 	"HIDDEN_ITEM_NAVEL_ROCK_SUMMIT_SACRED_ASH": function() {
