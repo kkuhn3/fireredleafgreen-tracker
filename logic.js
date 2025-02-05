@@ -268,13 +268,10 @@ function can_lavender() {
 			return "logical";
 		}
 		//-Cerulean
-		// New rocksmash rock between cerulean and route 9
-		if (can_rockSmash()) {
-			if (can_flash()) {
-				return "logical";
-			}
-			return "possible";
+		if (can_flash()) {
+			return "logical";
 		}
+		return "possible";
 	}
 }
 function can_celadon() {
@@ -391,8 +388,7 @@ function can_route3() {
 // 8 - can_lavender()
 // 9 
 function can_route9() {
-	// Extra Rocksmash rock added.
-	if (can_cut() && can_rockSmash()) {
+	if (can_cut()) {
 		return "logical";
 	}
 	if (can_lavender()) {
@@ -485,10 +481,7 @@ function can_rocketWarehouse() {
 		if (can_surf() && has("EVENT_DELIVER_METEORITE") && can_one()) {
 			// and if you can get "yes_nah_chansey"
 			if (can_cut()) {
-				// and help lorelei in icefall cave
-				if (can_waterfall()) {
-					return "logical";
-				}
+				return "logical";
 			}
 		}
 	}
@@ -2294,7 +2287,7 @@ const locationLogic = {
 		}
 	},
 	"NPC_GIFT_GOT_SCANNER": function() {
-		if (can_surf()) {
+		if (can_surf() && can_strength()) {
 			return can_four_five_six_seven();
 		}
 	},
