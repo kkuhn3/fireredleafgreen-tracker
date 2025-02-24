@@ -1,30 +1,8 @@
 let aport = false;
 let pname = false;
 
-let idToString = {};
-let idToItem = {};
-let idToLocation = {};
-let idToEvent = {};
 // https://github.com/vyneras/Archipelago/blob/frlg-stable/worlds/pokemon_frlg/data.py
-const offset = 6420000;
-async function loadStaticContent() {
-	const res1 = await fetch('./static/idToString.json', {
-		method: 'GET'
-	});
-	idToString = await res1.json();
-	const res2 = await fetch('./static/idToItem.json', {
-		method: 'GET'
-	});
-	idToItem = await res2.json();
-	const res3 = await fetch('./static/idToLocation.json', {
-		method: 'GET'
-	});
-	idToLocation = await res3.json();
-	const res4 = await fetch('./static/idToEvent.json', {
-		method: 'GET'
-	});
-	idToEvent = await res4.json();
-}
+const offset = 0;
 
 function connect() {
 	if (!aport || !pname) {

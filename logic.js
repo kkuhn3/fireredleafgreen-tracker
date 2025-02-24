@@ -1042,6 +1042,11 @@ const locationLogic = {
 			return can_areaHidden(can_saffron());
 		}
 	},
+	"NPC_GIFT_GOT_LINK_CABLE": function() {
+		if (has("EVENT_RESCUE_FUJI") && has("ITEM_CARD_KEY")) {
+			return can_saffron();
+		}
+	},
 	"ITEM_SILPH_CO_8F_IRON": function() {
 		if (has("EVENT_RESCUE_FUJI")) {
 			return can_saffron();
