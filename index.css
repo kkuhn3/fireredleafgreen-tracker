@@ -31,6 +31,7 @@ body {
 	background-color: #293541;
 	background-repeat: no-repeat;
 	background-position: center;
+	position: relative;
 }
 .setting:hover {
 	transform: scale(1.2);
@@ -62,6 +63,7 @@ body {
 	background-color: #293541;
 	background-repeat: no-repeat;
 	background-position: center;
+	position: relative;
 }
 .item:hover {
 	transform: scale(1.2);
