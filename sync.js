@@ -1,11 +1,13 @@
+let ahost = "archipelago.gg";
 let aport = false;
-let pname = false;
+let aname = false;
+let apass = "";
 
 // https://github.com/vyneras/Archipelago/blob/frlg-stable/worlds/pokemon_frlg/data.py
 const offset = 0;
 
 function connect() {
-	if (!aport || !pname) {
+	if (!aport || !aname) {
 		return;
 	}
 	socket = new WebSocket("wss://archipelago.gg:" + aport);
@@ -13,9 +15,9 @@ function connect() {
 	socket.addEventListener('open', function (event) {
 		socket.send(`[{
 			"cmd" : "Connect",
-			"password" : "",
+			"password" : "` + apass + `",
 			"game" : "Pokemon FireRed and LeafGreen",
-			"name" : "` + pname + `",
+			"name" : "` + aname + `",
 			"tags" : ["Tracker"],
 			"version" : {
 				"major": 0,

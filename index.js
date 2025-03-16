@@ -441,7 +441,13 @@ function parseSettings() {
 	}
 
 	if (urlSearch.get("name") && urlSearch.get("port")) {
-		pname = urlSearch.get("name");
+		aname = urlSearch.get("name");
 		aport = urlSearch.get("port");
+		if (urlSearch.get("host")) {
+			ahost = urlSearch.get("host");
+		}
+		if (urlSearch.get("pass")) {
+			apass = urlSearch.get("pass");
+		}
 	}
 }
