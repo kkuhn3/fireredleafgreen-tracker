@@ -21,7 +21,7 @@ function connect() {
 			"tags" : ["Tracker"],
 			"version" : {
 				"major": 0,
-				"minor": 5,
+				"minor": 6,
 				"build": 1,
 				"class": "Version"
 			},
@@ -48,6 +48,7 @@ function connect() {
 					if (currentGroup) {
 						groupBreakDown.innerHTML = "";
 					}
+					settingsFromSlotData(command.slot_data);
 					for (let location of command.checked_locations) {
 						gotLocation(location);
 					}
@@ -131,4 +132,32 @@ function gotLocation(id) {
 		}
 
 	}
+}
+
+function settingsFromSlotData(slotData) {
+	for (const setting of document.getElementsByClassName("setting")) {
+		if (slotData[setting.id] != null) {
+			setSettingClass(setting, "_" + slotData[setting.id]);
+		}
+	}
+	// Special Cases
+	if (getSettingState(card_key) === 2) {
+		setSettingClass(card_key, "_1");
+	}
+	if (getSettingState(island_passes) === 1) {
+		setSettingClass(island_passes, "_0");
+	}
+	else if (getSettingState(island_passes) === 2) {
+		setSettingClass(island_passes, "_1");
+	}
+	else if (getSettingState(island_passes) === 3) {
+		setSettingClass(island_passes, "_1");
+	}
+	if (getSettingState(viridian_city_roadblock) === 1) {
+		setSettingClass(viridian_city_roadblock, "_0");
+	}
+	else if (getSettingState(viridian_city_roadblock) === 2) {
+		setSettingClass(viridian_city_roadblock, "_1");
+	}
+	hideToMatch();
 }

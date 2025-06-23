@@ -135,22 +135,17 @@ function itemOnClick(item) {
 
 //Settings
 //Settings - Helper
+function getSettingState(div) {
+	return parseInt(div.classList[div.classList.length - 1].substring(1), 10);
+}
 function settingIterate(setting, max) {
-	let count = parseInt(setting.classList[1].substring(1), 10);
-	setting.classList.remove(setting.classList[1]);
+	let count = getSettingState(setting);
+	setting.classList.remove(setting.classList[setting.classList.length - 1]);
 	count = count + 1;
 	if (count > max) {
 		count = 0;
 	}
 	setting.classList.add("_" + count);
-}
-function ifTrueAddClass(div, shouldAddClass, className) {
-	if (shouldAddClass) {
-		addClassName(div, className);
-	}
-	else {
-		div.classList.remove(className);
-	}
 }
 function setSettingClass(div, className) {
 	div.classList.remove("_0", "_1", "_2", "_3", "_4", "_5", "_6", "_7", "_8");
@@ -160,16 +155,77 @@ function setSettingClass(div, className) {
 }
 
 //Settings - items in logic
-function settingIterateOnClick(div, count) {
+function hideToMatch() {
+	let shouldHide = [];
+	if (getSettingState(goal) === 0) {
+		shouldHide = shouldHide.concat(postE4Locs);
+		ccreqs = getSettingState(cerulean_cave_requirement);
+		if (ccreqs === 0 || ccreqs === 1) {
+			shouldHide = shouldHide.concat(ceruleanCaveLocs);
+		}
+	}
+	if (getSettingState(kanto_only) === 1) {
+		shouldHide = shouldHide.concat(sevii_locs);
+	}
+	if (getSettingState(shuffle_hidden) === 0) {
+		shouldHide = shouldHide.concat(HIDDEN_ITEM_locs);
+		shouldHide = shouldHide.concat(HIDDEN_ITEM_RECURRING_locs);
+	}
+	else if (getSettingState(shuffle_hidden) === 1) {
+		shouldHide = shouldHide.concat(HIDDEN_ITEM_RECURRING_locs);
+	}
+	if (getSettingState(extra_key_items) === 0) {
+		shouldHide = shouldHide.concat(EXTRA_KEY_ITEM_locs);
+	}
+	if (getSettingState(pokemon_request_locations) === 0) {
+		shouldHide = shouldHide.concat(POKEMON_REQUEST_locs);
+	}
+	if (getSettingState(shuffle_berry_pouch) === 0) {
+		shouldHide.push(STARTING_ITEM_BERRY_POUCH_loc);
+	}
+	if (getSettingState(shuffle_tm_case) === 0) {
+		shouldHide.push(STARTING_ITEM_TM_CASE_loc);
+	}
+	if (getSettingState(card_key) === 0) {
+		shouldHide = shouldHide.concat(SPLIT_CARD_KEY_locs);
+	}
+	if (getSettingState(island_passes) === 0) {
+		shouldHide = shouldHide.concat(SPLIT_ISLAND_PASS_locs);
+	}
+	if (getSettingState(split_teas) === 0) {
+		shouldHide = shouldHide.concat(SPLIT_TEA_locs);
+	}
+	if (getSettingState(gym_keys) === 0) {
+		shouldHide = shouldHide.concat(GYM_KEY_locs);
+	}
+	for (let location of document.getElementsByClassName("location")) {
+		location.classList.remove("hidden");
+		if (shouldHide.includes(location.id)) {
+			location.classList.add("hidden");
+		}
+	}
+	for (let sub of document.getElementsByClassName("sub")) {
+		sub.classList.remove("hidden");
+		if (shouldHide.includes(sub.id)) {
+			sub.classList.add("hidden");
+		}
+	}
+	updateGroups();
+	countchecks();
+}
+function settingHide(div, count) {
 	settingIterate(div, count);
-	updateLocations();
+	groupBreakDown.innerHTML = "";
+	hideToMatch();
 	updateGroups();
 	countchecks();
+	if (currentGroup) {
+		groupFocus(document.getElementById(currentGroup));
+	}
 }
-function shuffleHiddenOnClick() {
-	settingIterate(shuffle_hidden, 2);
+function settingLogic(div, count) {
+	settingIterate(div, count);
 	groupBreakDown.innerHTML = "";
-	hideToMatchHidden();
 	updateLocations();
 	updateGroups();
 	countchecks();
@@ -177,89 +233,15 @@ function shuffleHiddenOnClick() {
 		groupFocus(document.getElementById(currentGroup));
 	}
 }
-function hideToMatchHidden() {
-	const enumInt = parseInt(shuffle_hidden.classList[1].substring(1), 10);
-	if (enumInt === 0) {
-		for (let divId of hiddenLocs) {
-			let div = document.getElementById(divId);
-			addClassName(div, "hiddenhidden");
-		}
-		for (let divId of recurringLocs) {
-			let div = document.getElementById(divId);
-			addClassName(div, "hiddenhidden");
-		}
-	}
-	else if (enumInt === 1) {
-		for (let divId of hiddenLocs) {
-			let div = document.getElementById(divId);
-			div.classList.remove("hiddenhidden");
-		}
-		for (let divId of recurringLocs) {
-			let div = document.getElementById(divId);
-			addClassName(div, "hiddenhidden");
-		}
-	}
-	else {
-		for (let divId of hiddenLocs) {
-			let div = document.getElementById(divId);
-			div.classList.remove("hiddenhidden");
-		}
-		for (let divId of recurringLocs) {
-			let div = document.getElementById(divId);
-			div.classList.remove("hiddenhidden");
-		}
-	}
-}
-function kantoOnlyOnClick() {
-	settingIterate(kanto_only, 1);
+function settingLogicHide(div, count) {
+	settingIterate(div, count);
 	groupBreakDown.innerHTML = "";
-	hideToMatchKanto();
+	hideToMatch();
 	updateLocations();
 	updateGroups();
 	countchecks();
 	if (currentGroup) {
 		groupFocus(document.getElementById(currentGroup));
-	}
-}
-function hideToMatchKanto() {
-	const enumInt = parseInt(kanto_only.classList[1].substring(1), 10);
-	if (enumInt === 0) {
-		for (let divId of seviiLocs) {
-			let div = document.getElementById(divId);
-			div.classList.remove("althidden");
-		}
-	}
-	else {
-		for (let divId of seviiLocs) {
-			let div = document.getElementById(divId);
-			addClassName(div, "althidden");
-		}
-	}
-}
-function ceruleanCaveOnClick() {
-	settingIterate(cerulean_cave_requirement, 4);
-	groupBreakDown.innerHTML = "";
-	hideToMatchCeruleanCave();
-	updateLocations();
-	updateGroups();
-	countchecks();
-	if (currentGroup) {
-		groupFocus(document.getElementById(currentGroup));
-	}
-}
-function hideToMatchCeruleanCave() {
-	const enumInt = parseInt(cerulean_cave_requirement.classList[1].substring(1), 10);
-	if (enumInt === 0 || enumInt === 1) {
-		for (let divId of ceruleanCaveLocs) {
-			let div = document.getElementById(divId);
-			addClassName(div, "althidden");
-		}
-	}
-	else {
-		for (let divId of ceruleanCaveLocs) {
-			let div = document.getElementById(divId);
-			div.classList.remove("althidden");
-		}
 	}
 }
 
@@ -294,7 +276,7 @@ function updateGroup(group) {
 	let event = false;
 	let checked = true;
 	for (let sub of group.getElementsByClassName("sub")) {
-		if (!sub.classList.contains("hiddenhidden") && !sub.classList.contains("althidden")) {
+		if (!sub.classList.contains("hidden")) {
 			hidden = false;
 			if (!sub.classList.contains("subchecked")) {
 				checked = false;
@@ -369,7 +351,7 @@ function countchecks() {
 	for (let child of map.children) {
 		if (child.classList.contains("group")) {
 			for (let sub of child.children) {
-				if (!sub.id.includes("EVENT_") && !sub.classList.contains("hiddenhidden") && !sub.classList.contains("althidden")) {
+				if (!sub.id.includes("EVENT_") && !sub.classList.contains("hidden")) {
 					total = total + 1;
 					if (sub.classList.contains("subchecked")) {
 						checked = checked + 1;
@@ -381,7 +363,7 @@ function countchecks() {
 			}
 		}
 		else if (child.classList.contains("location")) {
-			if (!child.id.includes("EVENT_") && !child.classList.contains("hiddenhidden") && !child.classList.contains("althidden")) {
+			if (!child.id.includes("EVENT_") && !child.classList.contains("hidden")) {
 				total = total + 1;
 				if (child.classList.contains("locationchecked")) {
 					checked = checked + 1;
@@ -400,44 +382,11 @@ function countchecks() {
 //Parse URL inputs
 function parseSettings() {
 	const urlSearch = new URLSearchParams(window.location.search);
-	if (isIntLessThan(urlSearch.get("hi"), 1)) {
-		setSettingClass(shuffle_hidden, "_" + urlSearch.get("hi"));
-	}
-	if (isIntLessThan(urlSearch.get("ko"), 1)) {
-		setSettingClass(kanto_only, "_" + urlSearch.get("ko"));
-	}
-	if (isIntLessThan(urlSearch.get("r3"), 1)) {
-		setSettingClass(pewter_city_roadblock, "_" + urlSearch.get("r3"));
-	}
-	if (isIntLessThan(urlSearch.get("vgr"), 7)) {
-		setSettingClass(viridian_gym_requirement, "_" + urlSearch.get("vgr"));
-	}
-	if (isIntLessThan(urlSearch.get("vgc"), 1)) {
-		setSettingClass(viridian_gym_count, "_" + urlSearch.get("vgc"));
-	}
-	if (isIntLessThan(urlSearch.get("r2r"), 8)) {
-		setSettingClass(route22_gate_requirement, "_" + urlSearch.get("r2r"));
-	}
-	if (isIntLessThan(urlSearch.get("r2c"), 2)) {
-		setSettingClass(route22_gate_count, "_" + urlSearch.get("r2c"));
-	}
-	if (isIntLessThan(urlSearch.get("vrr"), 2)) {
-		setSettingClass(route23_guard_requirement, "_" + urlSearch.get("vrr"));
-	}
-	if (isIntLessThan(urlSearch.get("vrc"), 2)) {
-		setSettingClass(route23_guard_count, "_" + urlSearch.get("vrc"));
-	}
-	if (isIntLessThan(urlSearch.get("e4r"), 2)) {
-		setSettingClass(elite_four_requirement, "_" + urlSearch.get("e4r"));
-	}
-	if (isIntLessThan(urlSearch.get("e4c"), 2)) {
-		setSettingClass(elite_four_count, "_" + urlSearch.get("e4c"));
-	}
-	if (isIntLessThan(urlSearch.get("ccr"), 2)) {
-		setSettingClass(cerulean_cave_requirement, "_" + urlSearch.get("ccr"));
-	}
-	if (isIntLessThan(urlSearch.get("ccc"), 2)) {
-		setSettingClass(cerulean_cave_count, "_" + urlSearch.get("ccc"));
+	for (const [key, value] of urlSearch) {
+		let div = document.getElementById(key);
+		if (div) {
+			setSettingClass(div, "_" + value);
+		}
 	}
 
 	if (urlSearch.get("name") && urlSearch.get("port")) {

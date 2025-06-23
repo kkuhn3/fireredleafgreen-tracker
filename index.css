@@ -23,8 +23,8 @@ body {
 }
 /*Settings*/
 .setting {
-	width: 2.5vw;
-	height: 2.5vw;
+	width: calc(20vw/14);
+	height: calc(20vw/14);
 	background-size: contain;
 	float: left;
 	cursor: pointer;
@@ -41,21 +41,29 @@ body {
 .notImageImage {
 	cursor: default;
 	color: silver;
-	font-size: 1.2vw;
+	font-size: .9vw;
 	text-align: center;
-	line-height: 2.5vw;
+	line-height: calc(20vw/14);
 	box-shadow: 0 1px 0 0 #d3dfeb inset, 1px 0 0 0 #d3dfeb inset, -1px 0 0 0 #d3dfeb inset, 0 -1px 0 0 #d3dfeb inset;
 }
 .setting.notImageImage:hover {
 	transform: scale(1);
+}
+.itemsized {
+	width: calc(20vw/8);
+	height: calc(20vw/8);
+}
+.smallSetting {
+	width: calc(20vw/15);
+	height: calc(20vw/15);
 }
 /*Items*/
 #items {
 	float: left;
 }
 .item {
-	width: 2.5vw;
-	height: 2.5vw;
+	width: calc(20vw/8);
+	height: calc(20vw/8);
 	background-size: contain;
 	float: left;
 	filter: grayscale(100%);
@@ -71,8 +79,16 @@ body {
 	z-index: 100;
 }
 .smallItem {
-	width: 2vw;
-	height: 2vw;
+	width: calc(20vw/10);
+	height: calc(20vw/10);
+}
+.smallerItem {
+	width: calc(20vw/11);
+	height: calc(20vw/11);
+}
+.smallestItem {
+	width: calc(20vw/12);
+	height: calc(20vw/12);
 }
 .itemchecked {
 	filter: grayscale(0%);
@@ -238,12 +254,6 @@ body {
 
 /*various aliases for display none*/
 .hidden {
-	display: none;
-}
-.hiddenhidden {
-	display: none;
-}
-.althidden {
 	display: none;
 }
 

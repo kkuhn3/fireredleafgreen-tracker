@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Red/Blue Tracker Settings</title>
+	<title>FireRed/LeafGreen Tracker Settings</title>
 	<script src="index.js"></script>
 	<link rel="stylesheet" type="text/css" href="index.css">
 </head>
@@ -32,23 +32,113 @@
 		Randomizer Settings
 	</div>
 	<div>
-		<label>Hidden Items</label>
-		<select id="HI">
-			<option value="" selected>Excluded</option>
-			<option value="1">Randomize Nonrecurring</option>
-			<option value="2">Randomize All</option>
+		<label>Goal</label>
+		<select id="goal">
+			<option value="" selected>Champion</option>
+			<option value="1">Champion Rematch</option>
 		</select>
 	</div>
 	<div>
 		<label>Kanto Only</label>
-		<select id="KO">
+		<select id="kanto_only">
 			<option value="" selected>All Regions</option>
 			<option value="1">Only Kanto</option>
 		</select>
 	</div>
 	<div>
-		<label>Route 3 Condition</label>
-		<select id="R3">
+		<label>Shuffle Hidden Items</label>
+		<select id="shuffle_hidden">
+			<option value="" selected>Exclude</option>
+			<option value="1">Randomize Nonrecurring</option>
+			<option value="2">Randomize All</option>
+		</select>
+	</div>
+	<div>
+		<label>Extra Key Items</label>
+		<select id="extra_key_items">
+			<option value="" selected>Vanilla</option>
+			<option value="1">Extra Items</option>
+		</select>
+	</div>
+	<div>
+		<label>Pokemon Request Locations</label>
+		<select id="pokemon_request_locations">
+			<option value="" selected>Exclude</option>
+			<option value="1">Randomize</option>
+		</select>
+	</div>
+	<div>
+		<label>Shuffle Berry Pouch</label>
+		<select id="shuffle_berry_pouch">
+			<option value="" selected>Start With</option>
+			<option value="1">Randomize</option>
+		</select>
+	</div>
+	<div>
+		<label>Shuffle TM Case</label>
+		<select id="shuffle_tm_case">
+			<option value="" selected>Start With</option>
+			<option value="1">Randomize</option>
+		</select>
+	</div>
+	<div>
+		<label>Card Key</label>
+		<select id="card_key">
+			<option value="" selected>Vanilla</option>
+			<option value="1">Split</option>
+			<option value="1">Progressive</option>
+		</select>
+	</div>
+	<div>
+		<label>Island Passes</label>
+		<select id="island_passes">
+			<option value="" selected>Vanilla</option>
+			<option value="">Progressive</option>
+			<option value="1">Split</option>
+			<option value="1">Progressive Split</option>
+		</select>
+	</div>
+	<div>
+		<label>Split Teas</label>
+		<select id="split_teas">
+			<option value="" selected>Vanilla</option>
+			<option value="1">Split</option>
+		</select>
+	</div>
+	<div>
+		<label>Gym Keys</label>
+		<select id="gym_keys">
+			<option value="" selected>None</option>
+			<option value="1">Extra Keys</option>
+		</select>
+	</div>
+	<div>
+		<label>Itemfinder Required</label>
+		<select id="itemfinder_required">
+			<option value="0">No</option>
+			<option value="" selected>Logically</option>
+			<option value="2">Required</option>
+		</select>
+	</div>
+	<div>
+		<label>Flash Required</label>
+		<select id="flash_required">
+			<option value="0">No</option>
+			<option value="" selected>Logically</option>
+			<option value="2">Required</option>
+		</select>
+	</div>
+	<div>
+		<label>Viridian City Roadblock</label>
+		<select id="viridian_city_roadblock">
+			<option value="">Vanilla</option>
+			<option value="" selected>Early Parcel</option>
+			<option value="1">Open</option>
+		</select>
+	</div>
+	<div>
+		<label>Pewter City Roadblock</label>
+		<select id="pewter_city_roadblock">
 			<option value="0">Open</option>
 			<option value="" selected>Defeat Brock</option>
 			<option value="2">Defeat any Gym Leader</option>
@@ -56,17 +146,16 @@
 			<option value="4">Obtain any Badge</option>
 		</select>
 	</div>
-	
 	<div>
 		<label>Viridian Gym Requirement</label>
-		<select id="VGR">
+		<select id="viridian_gym_requirement">
 			<option value="0">Badges</option>
 			<option value="" selected>Gyms</option>
 		</select>
 	</div>
 	<div>
-		<label>Viridian Gym Requires</label>
-		<select id="VGC">
+		<label>Viridian Gym Count</label>
+		<select id="viridian_gym_count">
 			<option value="0">0</option>
 			<option value="1">1</option>
 			<option value="2">2</option>
@@ -77,17 +166,16 @@
 			<option value="" selected>7</option>
 		</select>
 	</div>
-
 	<div>
 		<label>Route 22 Gate Requirement</label>
-		<select id="R2R">
+		<select id="route22_gate_requirement">
 			<option value="0">Badges</option>
 			<option value="" selected>Gyms</option>
 		</select>
 	</div>
 	<div>
-		<label>Route 22 Gate Requires</label>
-		<select id="R2C">
+		<label>Route 22 Gate Count</label>
+		<select id="route22_gate_count">
 			<option value="0">0</option>
 			<option value="1">1</option>
 			<option value="2">2</option>
@@ -95,21 +183,20 @@
 			<option value="4">4</option>
 			<option value="5">5</option>
 			<option value="6">6</option>
-			<option value="7">7</option>
-			<option value="" selected>8</option>
+			<option value="" selected>7</option>
+			<option value="">8</option>
 		</select>
 	</div>
-
 	<div>
-		<label>Victory Road Requirement</label>
-		<select id="VRR">
+		<label>Route 23 Guard Requirement</label>
+		<select id="route23_guard_requirement">
 			<option value="0">Badges</option>
 			<option value="" selected>Gyms</option>
 		</select>
 	</div>
 	<div>
-		<label>Victory Road Requires</label>
-		<select id="VRC">
+		<label>Route 23 Guard Count</label>
+		<select id="route23_guard_count">
 			<option value="0">0</option>
 			<option value="1">1</option>
 			<option value="2">2</option>
@@ -117,21 +204,20 @@
 			<option value="4">4</option>
 			<option value="5">5</option>
 			<option value="6">6</option>
-			<option value="7">7</option>
-			<option value="" selected>8</option>
+			<option value="" selected>7</option>
+			<option value="">8</option>
 		</select>
 	</div>
-
 	<div>
 		<label>Elite Four Requirement</label>
-		<select id="E4R">
+		<select id="elite_four_requirement">
 			<option value="0">Badges</option>
 			<option value="" selected>Gyms</option>
 		</select>
 	</div>
 	<div>
-		<label>Elite Four Requires</label>
-		<select id="E4C">
+		<label>Elite Four Count</label>
+		<select id="elite_four_count">
 			<option value="0">0</option>
 			<option value="1">1</option>
 			<option value="2">2</option>
@@ -143,20 +229,33 @@
 			<option value="" selected>8</option>
 		</select>
 	</div>
-
+	<div>
+		<label>Elite Four Rematch Count</label>
+		<select id="elite_four_rematch_count">
+			<option value="0">0</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="" selected>8</option>
+		</select>
+	</div>
 	<div>
 		<label>Cerulean Cave Requirement</label>
-		<select id="CCR">
-			<option value="0">Vanilla</option>
+		<select id="cerulean_cave_requirement">
+			<option value="" selected>Vanilla</option>
 			<option value="1">Become Champion</option>
 			<option value="2">Restore Network</option>
 			<option value="3">Badges</option>
-			<option value="" selected>Gyms</option>
+			<option value="4">Gyms</option>
 		</select>
 	</div>
 	<div>
 		<label>Cerulean Cave Requires</label>
-		<select id="CCC">
+		<select id="cerulean_cave_count">
 			<option value="0">0</option>
 			<option value="1">1</option>
 			<option value="2">2</option>
@@ -168,7 +267,6 @@
 			<option value="" selected>8</option>
 		</select>
 	</div>
-
 	<div class="header">
 		Ready?
 	</div>

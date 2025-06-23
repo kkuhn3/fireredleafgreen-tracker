@@ -109,7 +109,125 @@
 	background-image: url(./images/items/ITEM_SCANNER.png);
 }
 
+/* Items, Row 4 */
+#ITEM_HIDEOUT_KEY {
+	background-image: url(./images/items/Hideout_Key.png);
+}
+#ITEM_SAFARI_PASS {
+	background-image: url(./images/items/Safari_Pass.png);
+}
+#ITEM_MACHINE_PART {
+	background-image: url(./images/items/Machine_Part.png);
+}
+#ITEM_LETTER {
+	background-image: url(./images/items/letter.png);
+}
+#ITEM_TM_CASE {
+	background-image: url(./images/settings/shuffle_tm_case_0.png);
+}
+#ITEM_CARD_KEY_2F {
+	background-image: url(./images/items/ITEM_CARD_KEY_2F.png);
+}
+#ITEM_CARD_KEY_3F {
+	background-image: url(./images/items/ITEM_CARD_KEY_3F.png);
+}
+#ITEM_CARD_KEY_4F {
+	background-image: url(./images/items/ITEM_CARD_KEY_4F.png);
+}
+#ITEM_CARD_KEY_5F {
+	background-image: url(./images/items/ITEM_CARD_KEY_5F.png);
+}
+#ITEM_CARD_KEY_6F {
+	background-image: url(./images/items/ITEM_CARD_KEY_6F.png);
+}
+#ITEM_CARD_KEY_7F {
+	background-image: url(./images/items/ITEM_CARD_KEY_7F.png);
+}
+#ITEM_CARD_KEY_8F {
+	background-image: url(./images/items/ITEM_CARD_KEY_8F.png);
+}
+#ITEM_CARD_KEY_9F {
+	background-image: url(./images/items/ITEM_CARD_KEY_9F.png);
+}
+#ITEM_CARD_KEY_10F {
+	background-image: url(./images/items/ITEM_CARD_KEY_10F.png);
+}
+/* Items, Row 5 */
+#ITEM_CARD_KEY_11F {
+	background-image: url(./images/items/ITEM_CARD_KEY_11F.png);
+}
+#ITEM_ONE_PASS {
+	background-image: url(./images/items/ITEM_ONE_PASS.png);
+}
+#ITEM_TWO_PASS {
+	background-image: url(./images/items/ITEM_TWO_PASS.png);
+}
+#ITEM_THREE_PASS {
+	background-image: url(./images/items/ITEM_THREE_PASS.png);
+}
+#ITEM_FOUR_PASS {
+	background-image: url(./images/items/ITEM_FOUR_PASS.png);
+}
+#ITEM_FIVE_PASS {
+	background-image: url(./images/items/ITEM_FIVE_PASS.png);
+}
+#ITEM_SIX_PASS {
+	background-image: url(./images/items/ITEM_SIX_PASS.png);
+}
+#ITEM_SEVEN_PASS {
+	background-image: url(./images/items/ITEM_SEVEN_PASS.png);
+}
+#ITEM_BLUE_TEA {
+	background-image: url(./images/items/ITEM_BLUE_TEA.png);
+}
+#ITEM_RED_TEA {
+	background-image: url(./images/items/ITEM_RED_TEA.png);
+}
+/* Items, Row 6 */
+#ITEM_GREEN_TEA {
+	background-image: url(./images/items/ITEM_GREEN_TEA.png);
+}
+#ITEM_PURPLE_TEA {
+	background-image: url(./images/items/ITEM_PURPLE_TEA.png);
+}
+#ITEM_PEWTER_KEY {
+	background-image: url(./images/items/ITEM_PEWTER_KEY.png);
+}
+#ITEM_CERULEAN_KEY {
+	background-image: url(./images/items/ITEM_CERULEAN_KEY.png);
+}
+#ITEM_VERMILION_KEY {
+	background-image: url(./images/items/ITEM_VERMILION_KEY.png);
+}
+#ITEM_CELADON_KEY {
+	background-image: url(./images/items/ITEM_CELADON_KEY.png);
+}
+#ITEM_FUCHSIA_KEY {
+	background-image: url(./images/items/ITEM_FUCHSIA_KEY.png);
+}
+#ITEM_SAFFRON_KEY {
+	background-image: url(./images/items/ITEM_SAFFRON_KEY.png);
+}
+#ITEM_CINNABAR_KEY {
+	background-image: url(./images/items/ITEM_SECRET_KEY.png);
+}
+#ITEM_VIRIDIAN_KEY {
+	background-image: url(./images/items/ITEM_VIRIDIAN_KEY.png);
+}
+
 /* Settings, not really items but similar enough */
+#goal._0 {
+	background-image: url(./images/settings/goal_0.png);
+}
+#goal._1 {
+	background-image: url(./images/settings/goal_1.png);
+}
+#kanto_only._0 {
+	background-image: url(./images/settings/showsevii.png);
+}
+#kanto_only._1 {
+	background-image: url(./images/settings/hidesevii.png);
+}
 #shuffle_hidden._0 {
 	background-image: url(./images/settings/hidehidden.png);
 }
@@ -119,14 +237,81 @@
 #shuffle_hidden._2 {
 	background-image: url(./images/settings/showhidden.png);
 }
-
-#kanto_only._0 {
-	background-image: url(./images/settings/showsevii.png);
+#extra_key_items._0 {
+	background-image: url(./images/settings/extra_key_items_0.png);
 }
-#kanto_only._1 {
-	background-image: url(./images/settings/hidesevii.png);
+#extra_key_items._1 {
+	background-image: url(./images/settings/extra_key_items_1.png);
 }
-
+#extra_key_items._2 {
+	background-image: url(./images/settings/extra_key_items_2.png);
+}
+#pokemon_request_locations._0 {
+	background-image: url(./images/settings/pokemon_request_locations_0.png);
+}
+#pokemon_request_locations._1 {
+	background-image: url(./images/settings/pokemon_request_locations_1.png);
+}
+#shuffle_berry_pouch._0 {
+	background-image: url(./images/settings/shuffle_berry_pouch_0.png);
+}
+#shuffle_berry_pouch._1 {
+	background-image: url(./images/settings/shuffle_berry_pouch_1.png);
+}
+#shuffle_tm_case._0 {
+	background-image: url(./images/settings/shuffle_tm_case_0.png);
+}
+#shuffle_tm_case._1 {
+	background-image: url(./images/settings/shuffle_tm_case_1.png);
+}
+#card_key._0 {
+	background-image: url(./images/items/ITEM_CARD_KEY.png);
+}
+#card_key._1 {
+	background-image: url(./images/items/ITEM_CARD_KEY_11F.png);
+}
+#island_passes._0 {
+	background-image: url(./images/settings/island_passes_0.png);
+}
+#island_passes._1 {
+	background-image: url(./images/items/ITEM_SEVEN_PASS.png);
+}
+#split_teas._0 {
+	background-image: url(./images/items/ITEM_TEA.png);
+}
+#split_teas._1 {
+	background-image: url(./images/settings/split_teas_1.png);
+}
+#gym_keys._0 {
+	background-image: url(./images/items/ITEM_SECRET_KEY.png);
+}
+#gym_keys._1 {
+	background-image: url(./images/settings/gym_keys_1.png);
+}
+#itemfinder_required._0 {
+	background-image: url(./images/settings/hidehidden.png);
+}
+#itemfinder_required._1 {
+	background-image: url(./images/settings/itemfinder_required_1.png);
+}
+#itemfinder_required._2 {
+	background-image: url(./images/settings/itemfinder_required_2.png);
+}
+#flash_required._0 {
+	background-image: url(./images/settings/flash_required_0.png);
+}
+#flash_required._1 {
+	background-image: url(./images/settings/flash_required_1.png);
+}
+#flash_required._2 {
+	background-image: url(./images/settings/flash_required_2.png);
+}
+#viridian_city_roadblock._0 {
+	background-image: url(./images/settings/viridian_city_roadblock_0.png);
+}
+#viridian_city_roadblock._1 {
+	background-image: url(./images/settings/viridian_city_roadblock_1.png);
+}
 #pewter_city_roadblock._0 {
 	background-image: url(./images/settings/r3_0.png);
 }
@@ -143,50 +328,13 @@
 	background-image: url(./images/settings/r3_4.png);
 }
 
+/* Settings, row 2 */
 #viridian_gym_requirement._0 {
 	background-image: url(./images/settings/vgr_0.png);
 }
 #viridian_gym_requirement._1 {
 	background-image: url(./images/settings/vgr_1.png);
 }
-
-#route22_gate_requirement._0 {
-	background-image: url(./images/settings/r22r_0.png);
-}
-#route22_gate_requirement._1 {
-	background-image: url(./images/settings/r22r_1.png);
-}
-
-#route23_guard_requirement._0 {
-	background-image: url(./images/settings/vrr_0.png);
-}
-#route23_guard_requirement._1 {
-	background-image: url(./images/settings/vrr_1.png);
-}
-
-#elite_four_requirement._0 {
-	background-image: url(./images/settings/e4r_0.png);
-}
-#elite_four_requirement._1 {
-	background-image: url(./images/settings/e4r_1.png);
-}
-
-#cerulean_cave_requirement._0 {
-	background-image: url(./images/settings/ccr_0.png);
-}
-#cerulean_cave_requirement._1 {
-	background-image: url(./images/settings/ccr_1.png);
-}
-#cerulean_cave_requirement._2 {
-	background-image: url(./images/settings/ccr_2.png);
-}
-#cerulean_cave_requirement._3 {
-	background-image: url(./images/settings/ccr_3.png);
-}
-#cerulean_cave_requirement._4 {
-	background-image: url(./images/settings/ccr_4.png);
-}
-
 #viridian_gym_count._0 {
 	background-image: url(./images/settings/vgc_0.png);
 }
@@ -211,7 +359,12 @@
 #viridian_gym_count._7 {
 	background-image: url(./images/settings/vgc_7.png);
 }
-
+#route22_gate_requirement._0 {
+	background-image: url(./images/settings/r22r_0.png);
+}
+#route22_gate_requirement._1 {
+	background-image: url(./images/settings/r22r_1.png);
+}
 #route22_gate_count._0 {
 	background-image: url(./images/settings/r22c_0.png);
 }
@@ -239,7 +392,12 @@
 #route22_gate_count._8 {
 	background-image: url(./images/settings/r22c_8.png);
 }
-
+#route23_guard_requirement._0 {
+	background-image: url(./images/settings/vrr_0.png);
+}
+#route23_guard_requirement._1 {
+	background-image: url(./images/settings/vrr_1.png);
+}
 #route23_guard_count._0 {
 	background-image: url(./images/settings/vrc_0.png);
 }
@@ -267,7 +425,12 @@
 #route23_guard_count._8 {
 	background-image: url(./images/settings/vrc_8.png);
 }
-
+#elite_four_requirement._0 {
+	background-image: url(./images/settings/e4r_0.png);
+}
+#elite_four_requirement._1 {
+	background-image: url(./images/settings/e4r_1.png);
+}
 #elite_four_count._0 {
 	background-image: url(./images/settings/e4c_0.png);
 }
@@ -295,7 +458,48 @@
 #elite_four_count._8 {
 	background-image: url(./images/settings/e4c_8.png);
 }
-
+#elite_four_rematch_count._0 {
+	background-image: url(./images/settings/elite_four_rematch_count_0.png);
+}
+#elite_four_rematch_count._1 {
+	background-image: url(./images/settings/elite_four_rematch_count_1.png);
+}
+#elite_four_rematch_count._2 {
+	background-image: url(./images/settings/elite_four_rematch_count_2.png);
+}
+#elite_four_rematch_count._3 {
+	background-image: url(./images/settings/elite_four_rematch_count_3.png);
+}
+#elite_four_rematch_count._4 {
+	background-image: url(./images/settings/elite_four_rematch_count_4.png);
+}
+#elite_four_rematch_count._5 {
+	background-image: url(./images/settings/elite_four_rematch_count_5.png);
+}
+#elite_four_rematch_count._6 {
+	background-image: url(./images/settings/elite_four_rematch_count_6.png);
+}
+#elite_four_rematch_count._7 {
+	background-image: url(./images/settings/elite_four_rematch_count_7.png);
+}
+#elite_four_rematch_count._8 {
+	background-image: url(./images/settings/elite_four_rematch_count_8.png);
+}
+#cerulean_cave_requirement._0 {
+	background-image: url(./images/settings/ccr_0.png);
+}
+#cerulean_cave_requirement._1 {
+	background-image: url(./images/settings/ccr_1.png);
+}
+#cerulean_cave_requirement._2 {
+	background-image: url(./images/settings/ccr_2.png);
+}
+#cerulean_cave_requirement._3 {
+	background-image: url(./images/settings/ccr_3.png);
+}
+#cerulean_cave_requirement._4 {
+	background-image: url(./images/settings/ccr_4.png);
+}
 #cerulean_cave_count._0 {
 	background-image: url(./images/settings/ccc_0.png);
 }
