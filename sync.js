@@ -6,6 +6,9 @@ let apass = "";
 // https://github.com/vyneras/Archipelago/blob/frlg-stable/worlds/pokemon_frlg/data.py
 const offset = 0;
 
+let prog_card_key_count = 1;
+let prog_pass_count = 0;
+
 function connect() {
 	if (!aport || !aname) {
 		return;
@@ -106,6 +109,45 @@ function connect() {
 function gotItem(id) {
 	let itemName = idToItem[id - offset];
 	if (itemName) {
+		if (itemName === "ITEM_PROG_CARD_KEY") {
+			prog_card_key_count += 1;
+			itemName = "ITEM_CARD_KEY_" + prog_card_key_count + "F";
+		}
+		else if (itemName === "ITEM_PROG_PASS") {
+			if (getSettingState(island_passes) === 0) {
+				if (prog_pass_count) {
+					itemName = "ITEM_RAINBOW_PASS";
+				}
+				else {
+					prog_pass_count += 1;
+					itemName = "ITEM_TRI_PASS";
+				}
+			}
+			else {
+				prog_pass_count += 1;
+				if (prog_pass_count === 1) {
+					itemName = "ITEM_ONE_PASS";
+				}
+				else if (prog_pass_count === 2) {
+					itemName = "ITEM_TWO_PASS";
+				}
+				else if (prog_pass_count === 3) {
+					itemName = "ITEM_THREE_PASS";
+				}
+				else if (prog_pass_count === 4) {
+					itemName = "ITEM_FOUR_PASS";
+				}
+				else if (prog_pass_count === 5) {
+					itemName = "ITEM_FIVE_PASS";
+				}
+				else if (prog_pass_count === 6) {
+					itemName = "ITEM_SIX_PASS";
+				}
+				else {
+					itemName = "ITEM_SEVEN_PASS";
+				}
+			}
+		}
 		addClassName(document.getElementById(itemName), "itemchecked")
 	}
 }
