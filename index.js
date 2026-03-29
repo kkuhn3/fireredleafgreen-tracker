@@ -80,6 +80,7 @@ function updateLocations() {
 	if (currentGroup) {
 		groupBreakDown.innerHTML = "";
 	}
+	revaluate();
 	for (const locationId in locationLogic) {
 		updateLocation(locationId);
 	}

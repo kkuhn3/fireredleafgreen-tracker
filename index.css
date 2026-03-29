@@ -23,8 +23,8 @@ body {
 }
 /*Settings*/
 .setting {
-	width: calc(20vw/14);
-	height: calc(20vw/14);
+	width: calc(20vw/10);
+	height: calc(20vw/10);
 	background-size: contain;
 	float: left;
 	cursor: pointer;
@@ -54,8 +54,8 @@ body {
 	height: calc(20vw/8);
 }
 .smallSetting {
-	width: calc(20vw/15);
-	height: calc(20vw/15);
+	width: calc(20vw/14);
+	height: calc(20vw/14);
 }
 /*Items*/
 #items {
@@ -79,14 +79,6 @@ body {
 	z-index: 100;
 }
 .smallItem {
-	width: calc(20vw/10);
-	height: calc(20vw/10);
-}
-.smallerItem {
-	width: calc(20vw/11);
-	height: calc(20vw/11);
-}
-.smallestItem {
 	width: calc(20vw/12);
 	height: calc(20vw/12);
 }

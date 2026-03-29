@@ -51,6 +51,12 @@
 #ITEM_OAKS_PARCEL {
 	background-image: url(./images/items/ITEM_OAKS_PARCEL.png);
 }
+#ITEM_POKEDEX {
+	background-image: url(./images/settings/shuffle_pokedex_0.png);
+}
+#ITEM_HELIX_FOSSIL {
+	background-image: url(./images/items/ITEM_HELIX_FOSSIL.png);
+}
 #ITEM_SS_TICKET {
 	background-image: url(./images/items/ITEM_SS_TICKET.png);
 }
@@ -83,6 +89,12 @@
 }
 #ITEM_GOLD_TEETH {
 	background-image: url(./images/items/ITEM_GOLD_TEETH.png);
+}
+#ITEM_DOME_FOSSIL {
+	background-image: url(./images/items/ITEM_DOME_FOSSIL.png);
+}
+#ITEM_OLD_AMBER {
+	background-image: url(./images/items/ITEM_OLD_AMBER.png);
 }
 #ITEM_SECRET_KEY {
 	background-image: url(./images/items/ITEM_SECRET_KEY.png);
@@ -122,8 +134,14 @@
 #ITEM_LETTER {
 	background-image: url(./images/items/letter.png);
 }
+#ITEM_BERRY_POUCH {
+	background-image: url(./images/settings/shuffle_berry_pouch_0.png);
+}
 #ITEM_TM_CASE {
 	background-image: url(./images/settings/shuffle_tm_case_0.png);
+}
+#ITEM_JUMPING_SHOES {
+	background-image: url(./images/settings/shuffle_jumping_shoes_0.png);
 }
 #ITEM_CARD_KEY_2F {
 	background-image: url(./images/items/ITEM_CARD_KEY_2F.png);
@@ -252,6 +270,12 @@
 #pokemon_request_locations._1 {
 	background-image: url(./images/settings/pokemon_request_locations_1.png);
 }
+#shuffle_pokedex._0 {
+	background-image: url(./images/settings/shuffle_pokedex_0.png);
+}
+#shuffle_pokedex._1 {
+	background-image: url(./images/settings/shuffle_pokedex_1.png);
+}
 #shuffle_berry_pouch._0 {
 	background-image: url(./images/settings/shuffle_berry_pouch_0.png);
 }
@@ -264,12 +288,20 @@
 #shuffle_tm_case._1 {
 	background-image: url(./images/settings/shuffle_tm_case_1.png);
 }
+#shuffle_jumping_shoes._0 {
+	background-image: url(./images/settings/shuffle_jumping_shoes_0.png);
+}
+#shuffle_jumping_shoes._1 {
+	background-image: url(./images/settings/shuffle_jumping_shoes_1.png);
+}
 #card_key._0 {
 	background-image: url(./images/items/ITEM_CARD_KEY.png);
 }
 #card_key._1 {
 	background-image: url(./images/items/ITEM_CARD_KEY_11F.png);
 }
+
+/* Settings, row 2 */
 #island_passes._0 {
 	background-image: url(./images/settings/island_passes_0.png);
 }
@@ -306,6 +338,18 @@
 #flash_required._2 {
 	background-image: url(./images/settings/flash_required_2.png);
 }
+#bicycle_requires_jumping_shoes._0 {
+	background-image: url(./images/settings/bicycle_requires_jumping_shoes_0.png);
+}
+#bicycle_requires_jumping_shoes._1 {
+	background-image: url(./images/settings/bicycle_requires_jumping_shoes_1.png);
+}
+#acrobatic_bicycle._0 {
+	background-image: url(./images/settings/acrobatic_bicycle_0.png);
+}
+#acrobatic_bicycle._1 {
+	background-image: url(./images/settings/acrobatic_bicycle_1.png);
+}
 #viridian_city_roadblock._0 {
 	background-image: url(./images/settings/viridian_city_roadblock_0.png);
 }
@@ -327,8 +371,20 @@
 #pewter_city_roadblock._4 {
 	background-image: url(./images/settings/r3_4.png);
 }
+#fossil_count._0 {
+	background-image: url(./images/settings/fossil_count_0.png);
+}
+#fossil_count._1 {
+	background-image: url(./images/settings/fossil_count_1.png);
+}
+#fossil_count._2 {
+	background-image: url(./images/settings/fossil_count_2.png);
+}
+#fossil_count._3 {
+	background-image: url(./images/settings/fossil_count_3.png);
+}
 
-/* Settings, row 2 */
+/* Settings, row 3 */
 #viridian_gym_requirement._0 {
 	background-image: url(./images/settings/vgr_0.png);
 }

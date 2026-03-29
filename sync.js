@@ -3,9 +3,6 @@ let aport = false;
 let aname = false;
 let apass = "";
 
-// https://github.com/vyneras/Archipelago/blob/frlg-stable/worlds/pokemon_frlg/data.py
-const offset = 0;
-
 let prog_card_key_count = 1;
 let prog_pass_count = 0;
 
@@ -25,7 +22,7 @@ function connect() {
 			"version" : {
 				"major": 0,
 				"minor": 6,
-				"build": 1,
+				"build": 6,
 				"class": "Version"
 			},
 			"items_handling" : 7,
@@ -107,7 +104,7 @@ function connect() {
 }
 
 function gotItem(id) {
-	let itemName = idToItem[id - offset];
+	let itemName = idToItem[id];
 	if (itemName) {
 		if (itemName === "ITEM_PROG_CARD_KEY") {
 			prog_card_key_count += 1;
@@ -148,12 +145,18 @@ function gotItem(id) {
 				}
 			}
 		}
-		addClassName(document.getElementById(itemName), "itemchecked")
+		let div = document.getElementById(itemName);
+		if (!div) {
+			console.log("couldn't find div for: " + itemName);
+		}
+		else {
+			addClassName(document.getElementById(itemName), "itemchecked");
+		}
 	}
 }
 
 function gotLocation(id) {
-	let locationName = idToLocation[id - offset];
+	let locationName = idToLocation[id];
 	if (locationName) {
 		let div = document.getElementById(locationName);
 		if (div.classList.contains("sub")) {
@@ -163,7 +166,7 @@ function gotLocation(id) {
 			addClassName(document.getElementById(locationName), "locationchecked");
 		}
 	}
-	let eventName = idToEvent[id - offset];
+	let eventName = idToEvent[id];
 	if (eventName) {
 		let div = document.getElementById(eventName);
 		if (div.classList.contains("sub")) {
